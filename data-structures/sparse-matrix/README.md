@@ -1,5 +1,9 @@
 # Sparse Matrix in C++ and CLI App
 
+<p align="center" >
+  <img width="400" src="./matrix-manipulator-showcase.gif" alt="Project Showcase">
+</p>
+
 Implementation of the Abstract Data Type (ADT) **SparseMatrix** in C++ using orthogonal circular singly-linked lists (rows and columns) with sentinel nodes. Developed for the Data Structures course (QXD0010) at Universidade Federal do Ceará (UFC) - Campus Quixadá.
 
 ## Repository Documents
@@ -10,10 +14,6 @@ Implementation of the Abstract Data Type (ADT) **SparseMatrix** in C++ using ort
 ---
 
 ## CLI Commands (`main.cpp`)
-
-<p align="center" >
-  <img width="400" src="./matrix-manipulator-showcase.gif" alt="Project Showcase">
-</p>
 
 | Command | Description |
 | :--- | :--- |
