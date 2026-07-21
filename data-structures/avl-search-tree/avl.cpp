@@ -1,28 +1,25 @@
-/**************************************************
-//
-// Projeto 1 - Estrutura de Dados Avançada UFC
-//
-// AVL tree (Implementation file)
-//
-// Criação:     08 Mai 2023
-// Atualização: 26 Mai 2023
-//
-// Criado Por:
-// Nome: Atílio Gomes Luiz
-//
-// Arquivo Adaptado por:
-// Gustavo Gurgel Medeiros
-// Número de Matrícula [UFC]: 539226
-************************************************/
+/**
+ * @file avl.cpp
+ * @brief AVL tree (Implementation file)
+ *
+ * Project 1 - Advanced Data Structures UFC
+ *
+ * @date Created: May 08, 2023
+ * @date Updated: May 26, 2023
+ *
+ * @author Created by: Atílio Gomes Luiz
+ * @author Adapted by: Gustavo Gurgel Medeiros
+ */
 
 #include "avl.hpp"
 #include "node.hpp"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 
 //------------------------------------
-//   { Destrutores e Construtores }
+//   { Destructors and Constructors }
 //------------------------------------
 
 template <typename T> avl_tree<T>::~avl_tree() {
@@ -30,11 +27,11 @@ template <typename T> avl_tree<T>::~avl_tree() {
 }
 
 //----------------------------
-//   { Métodos Públicos }
+//   { Public Methods }
 //----------------------------
 
 template <typename T> void avl_tree<T>::add(T key, Person* per) {
-  //std::cout << "Adicionando: " << key << " pessoa: " << (*per);
+  // std::cout << "Adding: " << key << " person: " << (*per);
   root = add(root, key, per);
 }
 
@@ -53,10 +50,10 @@ void avl_tree<T>::inorderPrint(){
 
 template <typename T>
 Node<T>* avl_tree<T>::searchNodeByKey(T key){
-  //Nó atual
+  // Current node
 	Node<T>* current = this->root;
 
-  //Procura recursiva pelo nó com a chave procurada
+  // Search for the node with the requested key
 	while(current != nullptr && key != current->key){
 		if(key > current->key){
 			current = current->right;
@@ -65,48 +62,46 @@ Node<T>* avl_tree<T>::searchNodeByKey(T key){
 		}
 	}
 
-  //Retona o nó porcurado ou nullptr
-  //caso não encontrar
+  // Returns the found node or nullptr if not found
 	return current;
 }
 
 template <typename T>
 std::vector<Node<T>*> avl_tree<T>::searchNodeByInterval(T keyMin, T keyMax){
-  std::vector<Node<T>*> ret; //Vetor de retorno
-  std::stack<Node<T>*> st;   //Stack para simular recursão
+  std::vector<Node<T>*> ret; // Return vector
+  std::stack<Node<T>*> st;   // Stack to simulate recursion
 
-  //coloca a raiz na pilha
+  // Push root to stack
   st.push(root);
 
-  //Caso em que a chave mínima é maior que a máxima
-  //retorna um vetor vazio
+  // If min key is greater than max key, return empty vector
   if(keyMin > keyMax){
     return ret;
   }
 
-  //Simula recursão
+  // Simulate recursion
   while(!st.empty()){
     Node<T>* current = st.top();
     st.pop();
 
     if(current != nullptr){
-      //maior que o máximo (só pode estar na esquerda)
+      // Greater than max (can only be on the left)
       if(current->key > keyMax){
         st.push(current->left);
-      //menor que o mínimo (só pode estar na direita)
+      // Less than min (can only be on the right)
       }else if(current->key < keyMin){
         st.push(current->right);
-      //caso que está dentro dos limites
+      // Within limits
       }else{
-        //exatamente igual ao máximo
+        // Exactly equal to max
         if(current->key == keyMax){
           ret.push_back(current);
           st.push(current->left);
-        //exatamente igual ao mínimo
+        // Exactly equal to min
         }else if(current->key == keyMin){
           ret.push_back(current);
           st.push(current->right);
-        //entre o mínimo e o máximo
+        // Between min and max
         }else{
           ret.push_back(current);
           st.push(current->right);
@@ -121,38 +116,38 @@ std::vector<Node<T>*> avl_tree<T>::searchNodeByInterval(T keyMin, T keyMax){
 
 template <typename T>
 std::vector<Node<T>*> avl_tree<T>::searchNodeByPrefix(T prefix, bool (*isPrefix) (const T&, const T&)){
-  std::vector<Node<T>*> ret; //vetor de retorno
-  std::stack<Node<T>*> st;   //stack para simular recursão
+  std::vector<Node<T>*> ret; // Return vector
+  std::stack<Node<T>*> st;   // Stack to simulate recursion
 
-  //coloca a raiz na pilha
+  // Push root to stack
   st.push(root);
 
-  //Simulação de recursão
+  // Simulate recursion
   while(!st.empty()){
     Node<T>* current = st.top();
     st.pop();
 
     if(current != nullptr){
-      //se for prefíxo olha vai para os dois lados
+      // If it matches the prefix, search both sides
       if(isPrefix(prefix, current->key)){
         ret.push_back(current);
         st.push(current->left);
         st.push(current->right);
-      //valor é maior que o prefíxo
+      // Value is greater than the prefix
       }else if(current->key > prefix){
-        //olha se o valor contém o prefixo
+        // Check if the value contains the prefix
         if(isPrefix(prefix, current->key)){
           ret.push_back(current);
         }
-        //coloca o nó esquerdo da pilha
+        // Push the left node to the stack
         st.push(current->left);
-      //valor maior que o prefíxo
+      // Value is less than the prefix
       }else if(current->key < prefix){
-        //olha se o valor contém o prefixo
+        // Check if the value contains the prefix
         if(isPrefix(prefix, current->key)){
           ret.push_back(current);
         }
-        //coloca o nó direito da pilha
+        // Push the right node to the stack
         st.push(current->right);
       }
     }
@@ -162,10 +157,9 @@ std::vector<Node<T>*> avl_tree<T>::searchNodeByPrefix(T prefix, bool (*isPrefix)
 }
 
 //----------------------------
-//   { Métodos Privados }
+//   { Private Methods }
 //----------------------------
 
-//print inorderPrint
 template <typename T>
 void avl_tree<T>::inorderPrint(Node<T>* node){
 	if(node == nullptr){
@@ -188,7 +182,7 @@ template <typename T> Node<T> *avl_tree<T>::rightRotation(Node<T> *p) {
   Node<T> *u = p->left;
   p->left = u->right;
   u->right = p;
-  // recalcular as alturas de p e de u
+  // Recalculate heights for p and u
   p->height = 1 + max(height(p->left), height(p->right));
   u->height = 1 + max(height(u->left), height(u->right));
   return u;
@@ -198,42 +192,42 @@ template <typename T> Node<T> *avl_tree<T>::leftRotation(Node<T> *p) {
   Node<T> *u = p->right;
   p->right = u->left;
   u->left = p;
-  // recalcular as alturas de p e de u
+  // Recalculate heights for p and u
   p->height = 1 + max(height(p->right), height(p->left));
   u->height = 1 + max(height(u->left), height(u->right));
   return u;
 }
 
 template <typename T> Node<T> *avl_tree<T>::add(Node<T> *p, T key, Person* per) {
-	//local de alocação encontrado
+	// Allocation spot found
   if (p == nullptr){
 		return new Node<T>(key, per);
 	}
-  //valor duplicado
+  // Duplicated value
 	if (key == p->key){
 		p->addDupe(new Node<T>(key, per));
 		return p;
 	}
-  //local de alocação está na esquerda
+  // Allocation spot is on the left
 	if (key < p->key){
 		p->left = add(p->left, key, per);
 	}
-  //local de alocação está na direita
+  // Allocation spot is on the right
 	else{
 		p->right = add(p->right, key, per);
 	}
 
-  //Conserta balanceamento do nó
+  // Fix node balance
 	p = fixup_node(p, key);
 
 	return p;
 }
 
 template <typename T> Node<T> *avl_tree<T>::fixup_node(Node<T> *p, T key) {
-  // recalcula a altura de p
+  // Recalculate height of p
   p->height = 1 + max(height(p->left), height(p->right));
 
-  // calcula o balanço do p
+  // Calculate balance of p
   int bal = balance(p);
 
   if (bal >= -1 && bal <= 1) {
@@ -281,9 +275,8 @@ void avl_tree<T>::bshow(Node<T> *node, std::string heranca) const {
 }
 
 // ----------------------------
-// Instanciação dos templates
-// que vão ser usados pelo pro-
-// grama principal.
+// Template instantiations
+// used by the main program.
 // ----------------------------
 template class avl_tree<llint>;
 template class avl_tree<string>;

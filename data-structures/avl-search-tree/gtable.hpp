@@ -1,88 +1,80 @@
-/**************************************************
-//
-// Projeto 1 - Estrutura de Dados Avançada UFC
-//
-// GTabel (Header file)
-//
-// Criação:     21 Mai 2023
-// Atualização: 26 Mai 2023
-//
-// Criado Por:
-// Gustavo Gurgel Medeiros
-// Número de Matrícula [UFC]: 539226
-************************************************/
+/**
+ * @file gtable.hpp
+ * @brief GTable (Header file)
+ *
+ * Project 1 - Advanced Data Structures UFC
+ *
+ * @date Created: May 21, 2023
+ * @date Updated: May 26, 2023
+ *
+ * @author Created by: Gustavo Gurgel Medeiros
+ */
 
 #ifndef _GTABLE_H_
 #define _GTABLE_H_
 
-#include <iostream> //entrada e saida
-#include <vector>   //vetores
+#include <iostream>  // Input and output
+#include <vector>    // Vectors
 
-#include "gdate.hpp" //typedef uint
+#include "gdate.hpp" // For typedef uint
 
 using std::string;
 using std::cout;
 using std::endl;
 using std::vector;
 
-// ------------{ showRepeat }------------
-// > Mostra uma string repetidas
-// > vezes no termial
-// >
-// > str = "string repetida"
-// > times = "quantidade de repetições"
-// --------------------------------------
+/**
+ * @brief Prints a string repeatedly to the terminal.
+ *
+ * @param str The string to be repeated.
+ * @param times The number of times to repeat the string.
+ */
 void showRepeat(string str, int times);
 
-// ------------{ showRepeat }------------
-// > Retorna um string feita pela repe-
-// > petição de outra string.
-// >
-// > str = "string repetida"
-// > times = "quantidade de repetições"
-// --------------------------------------
-string strRepeat(string, int);
+/**
+ * @brief Returns a new string created by repeating another string.
+ *
+ * @param str The string to be repeated.
+ * @param times The number of times to repeat the string.
+ * @return string The resulting repeated string.
+ */
+string strRepeat(string str, int times);
 
-// ------------{ fillString }------------
-// > Retorna uma string cirada do preen-
-// > chimento de outra string. Lembrando
-// > que esse preenchimento é feito com
-// > caracteres vaios e a string é cen-
-// > tralizada.
-// >
-// > exemplo de retorno:
-// > parâmetros: str="gustavo", length=10
-// > retorno = "  gustavo "
-// >
-// > str = "string que vai ser preenchida"
-// > length = "tamanho esperado"
-// --------------------------------------
+/**
+ * @brief Returns a centered string padded with spaces to match a specific length.
+ *
+ * Empty spaces are added to the left and right of the original string
+ * to center it within the given length.
+ *
+ * @note Example:
+ * Parameters: str = "gustavo", length = 10
+ * Return: " gustavo  "
+ *
+ * @param str The string to be padded.
+ * @param length The expected total length of the string.
+ * @return string The padded and centered string.
+ */
 string fillString(string str, uint length);
 
-// ------------{ strLenght }------------
-// > Essa função vem para tentar resol-
-// > ver problemas de tamanho de strings
-// > com caracteres especiais e acentua-
-// > ção. Por exemplo, usando o método
-// > size do tipo string na string literal
-// > "Mário" o retono é igual a 6. Porque
-// > ele considera o caractere á como sendo
-// > dois caracteres separados. A função
-// > strLenght resolve isso, retonando o
-// > valor esperado.
-// >
-// > str = "string para calcular tamanho"
-// --------------------------------------
-uint strLenght(string);
+/**
+ * @brief Calculates the actual length of a UTF-8 string.
+ *
+ * This function resolves issues with string lengths containing special
+ * characters and accents. For example, using the standard string `size()`
+ * method on "Mário" returns 6 because the character 'á' is counted as two
+ * separate characters. This function handles UTF-8 properly and returns 5.
+ *
+ * @param str The string to calculate the length of.
+ * @return uint The actual character count of the string.
+ */
+uint strLenght(string str);
 
-// ------------{ tableStyle }------------
-// > Essa struct representa o estilo de
-// > uma tabela. Sua existência torna po-
-// > ssível alterações estetias na em como
-// > as tabelas são mostradas no terminal.
-// >
-// > str = "string para calcular tamanho"
-// ----------------------------------------
+/**
+ * @brief Struct representing the visual style of a table.
+ *
+ * This structure allows for aesthetic modifications in how
+ * tables are rendered and displayed in the terminal.
+ */
 struct tableStyle{
     string horizontalLine;
     string verticalLine;
@@ -102,42 +94,68 @@ struct tableStyle{
     string fullEdge;
 };
 
+/**
+ * @brief Class for drawing formatted tables in the terminal.
+ */
 class GTable {
 public:
-    GTable(uint padding);  //construtor padrão
+    /**
+     * @brief Constructs a new GTable object.
+     *
+     * @param padding The internal spacing (padding) for the table cells.
+     */
+    GTable(uint padding);
 
 
-    // ---------------{ addRow }---------------
-    // > Adiciona uma linha na tabela. Cada
-    // > linha na tabela é representada por
-    // > um vetor de strings de tamanho varia-
-    // > do.
-    // ----------------------------------------
-    void addRow(vector<string>);
+    /**
+     * @brief Adds a row to the table.
+     *
+     * Each row in the table is represented by a vector of strings
+     * of varying sizes.
+     *
+     * @param row A vector of strings representing the columns of the row.
+     */
+    void addRow(vector<string> row);
 
-    // ---------{ show }--------
-    // > Mostra tabela na tela.
-    // -------------------------
+    /**
+     * @brief Displays the table in the terminal.
+     */
     void show();
 
-    // ---------{ getTableRowSize }--------
-    // > Retorna a quantidade de linhas
-    // > da tabela.
-    // ------------------------------------
+    /**
+     * @brief Retrieves the number of rows currently in the table.
+     *
+     * @return uint The row count.
+     */
     uint getRowSize();
 
 private:
-    tableStyle sty;               //Estilo de tabela
-    uint tableMaxLength;          //Tamanho do maior vector
-    int padding;                  //Espaçamento
+    tableStyle sty;               ///< Visual style of the table
+    uint tableMaxLength;          ///< Maximum length among all rows
+    int padding;                  ///< Cell padding
 
-    vector<vector<string>> table; //Tabela de strings
-    vector<uint> lengths;         //Tabela de tamanhos horizontais
+    vector<vector<string>> table; ///< Table data (matrix of strings)
+    vector<uint> lengths;         ///< Array storing the max width of each column
 
-    void showTopLine();            //Fazer linha de topo
-    void showConnectLine();        //Fazer linha de conexão
-    void showMiddle();             //Fazer meio da tabela
-    void showDownLine();           //Fazer linha de baixo
+    /**
+     * @brief Draws the top border line of the table.
+     */
+    void showTopLine();
+
+    /**
+     * @brief Draws the connection line between rows.
+     */
+    void showConnectLine();
+
+    /**
+     * @brief Draws the middle section (data cells) of the table.
+     */
+    void showMiddle();
+
+    /**
+     * @brief Draws the bottom border line of the table.
+     */
+    void showDownLine();
 };
 
 #endif

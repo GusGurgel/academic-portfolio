@@ -1,21 +1,20 @@
-/**************************************************
-//
-// Projeto 1 - Estrutura de Dados Avançada UFC
-//
-// Person Class (Implementation file)
-//
-// Criação:     11 Mai 2023
-// Atualização: 26 Mai 2023
-//
-// Criado Por:
-// Nome: Gustavo Gurgel Medeiros
-// Número de Matrícula [UFC]: 539226
-//
-************************************************/
+/**
+ * @file person.cpp
+ * @brief Person Class (Implementation file)
+ *
+ * Project 1 - Advanced Data Structures UFC
+ *
+ * @date Created: May 11, 2023
+ * @date Updated: May 26, 2023
+ *
+ * @author Created by: Gustavo Gurgel Medeiros
+ */
 #include "person.hpp"
 
+#include <iostream> // Input and output operations
+
 //------------------------------------
-//   { Destrutores e Construtores }
+//   { Constructors and Destructors }
 //------------------------------------
 
 Person::Person(string str){
@@ -23,7 +22,7 @@ Person::Person(string str){
 }
 
 //----------------------------
-//   { Métodos Públicos }
+//   { Public Methods }
 //----------------------------
 
 void Person::setPerson(string str){
@@ -57,14 +56,14 @@ ostream &operator<<(ostream &os, const Person &person) {
 }
 
 //----------------------------
-//   { Métodos Privados }
+//   { Private Attributes }
 //----------------------------
 
 const std::regex Person::regexPerson("(\\d{3}\\.\\d{3}.\\d{3}-\\d{2}),(.*),(.*),(\\d{1,2}\\/\\d{1,2}\\/\\d{4}),(.*)");
 
 
 //----------------------------
-//      { Gets e Sets }
+//      { Getters }
 //----------------------------
 
 string Person::getNationalID() const{
@@ -72,9 +71,9 @@ string Person::getNationalID() const{
 }
 
 llint Person::getNumNationalID() const{
-	//Os '-' e '.' são removidos da string
-	//e depois ela é convertida para long
-	//long int com a função stoll
+	// The '-' and '.' are removed from the string,
+	// and then it is converted to a long long int
+    // using the stoll function.
     return stoll(getStringWithout(this->getNationalID(), "-."));
 }
 
@@ -101,8 +100,9 @@ string Person::getFullName() const{
 string Person::getBirthDayString() const{
     return birthday.toString();
 }
+
 //----------------------------
-//        { Funções }
+//   { Helper Functions }
 //----------------------------
 
 void makeLine(uint length){
@@ -113,12 +113,12 @@ void makeLine(uint length){
 }
 
 string getStringWithout(const string& str, const string& toRemove){
-	bool canAdd; //Diz se a string pode ser adicionada no retorno
+	bool canAdd; // Indicates if the character can be added to the return string
 	string ret = "";
 	for(const char& c : str){
-		canAdd = true; //suponho que posso adicionar
+		canAdd = true; // Assume it can be added
 		for(const char& r : toRemove){
-			//A string não pode ser adicionada
+			// The character matches one in toRemove, so it cannot be added
 			if(c == r){
 				canAdd = false;
 				break;

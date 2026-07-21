@@ -1,76 +1,89 @@
-/**************************************************
-//
-// Projeto 1 - Estrutura de Dados Avançada UFC
-//
-// Person Class (Header file)
-//
-// Criação:     11 Mai 2023
-// Atualização: 26 Mai 2023
-//
-// Criado Por:
-// Nome: Gustavo Gurgel Medeiros
-// Número de Matrícula [UFC]: 539226
-//
-************************************************/
+/**
+ * @file person.hpp
+ * @brief Person Class (Header file)
+ *
+ * Project 1 - Advanced Data Structures UFC
+ *
+ * @date Created: May 11, 2023
+ * @date Updated: May 26, 2023
+ *
+ * @author Created by: Gustavo Gurgel Medeiros
+ */
 
 #ifndef _PERSON_H_
 #define _PERSON_H_
 
-#include <string>   //palavras
-#include <regex>    //expressões regulares
-#include <iomanip>  //manipulação de entrada e saida
-#include <iostream> //operações de entrada e saida
-#include "gdate.hpp"  //datas
+#include "gdate.hpp"// Dates
+
+#include <string>   // Strings
+#include <regex>    // Regular expressions
 
 using std::string;
 
-string getStringWithout(const string&, const string&);
+/**
+ * @brief Removes specific characters from a string.
+ *
+ * @param str The original string.
+ * @param toRemove A string containing all the characters that should be removed.
+ * @return string The resulting string without the specified characters.
+ */
+string getStringWithout(const string& str, const string& toRemove);
 
-// ----------{ makeLine }----------
-// > Método privado que desenha uma
-// > linha no terminal.
-// >
-// > length = "comprimento da linha"
-// ---------------------------------
+/**
+ * @brief Draws a line in the terminal.
+ *
+ * @param length The length of the line (default is 30).
+ */
 void makeLine(uint length = 30);
 
+/**
+ * @brief Class representing a Person.
+ */
 class Person{
 public:
-    // ---{ Construtor Padrão }---
+    /**
+     * @brief Default constructor.
+     */
     Person() = default;
 
-    // ------{ Construtor Por String }------
-	// > Constroi uma pessoa a partir de uma
-	// > string.
-	// >
-    // > str = "string no formato esperado"
-	// >
-	// > !Valida os valores passados!
-    // -------------------------------------
-    Person(string);
+    /**
+     * @brief Constructs a person from a string.
+     *
+     * Validates the passed values.
+     *
+     * @param str String in the expected format.
+     */
+    Person(string str);
 
-    // -----------{ setPerson }-------------
-	// > Define os atributos de uma pessoa a
-	// > partir de um string.
-	// >
-    // > str = "string no formato esperado"
-	// >
-	// > !Valida os valores passados!
-    // -------------------------------------
-    void setPerson(string);
+    /**
+     * @brief Sets the person's attributes from a string.
+     *
+     * Validates the passed values.
+     *
+     * @param str String in the expected format.
+     * @throw std::invalid_argument if the string format is invalid.
+     */
+    void setPerson(string str);
 
-    // -------------{ show }-------------
-	// > Mostra uma pessoa de uma maneira
-    // > mais legível
-    // ----------------------------------
+    /**
+     * @brief Displays a person in a more readable format in the console.
+     */
     void show() const;
 
-    // --------{ &operator<< }----------
-	// > Overload do operador (<<)
-    // ---------------------------------
-	friend ostream &operator<<(ostream &, const Person &);
+    /**
+     * @brief Overload of the insertion operator (<<).
+     *
+     * @param os Output stream.
+     * @param person The person object to be outputted.
+     * @return ostream& Reference to the output stream.
+     */
+	friend ostream &operator<<(ostream &os, const Person &person);
 
-    // -------{ Gets e Sets }-------
+    /**
+     * @name Getters
+     * @brief Methods to retrieve Person attributes.
+     * @{
+     */
     string getNationalID() const;
     string getGivenName() const;
     string getSurname() const;
@@ -79,21 +92,21 @@ public:
     string getBirthDayString() const;
     llint getNumNationalID() const;
     GDate getBirthDay() const;
+    /** @} */
 
 private:
-    // ---{ Atributos Privados }---
+    // ---{ Private Attributes }---
     string nationalID;
     string givenName;
     string surname;
     GDate birthday;
     string city;
 
-    // ----------------{ regexPerson  }----------------
-	// > Expressão regular que representa uma data no
-    // > seguinte formato:
-	// >
-	// > "NationalID,GivenName,Surname,Birthday,City"
-    // ------------------------------------------------
+    /**
+     * @brief Regular expression representing a Person in the following format:
+     *
+     * "NationalID,GivenName,Surname,Birthday,City"
+     */
     const static std::regex regexPerson;
 };
 

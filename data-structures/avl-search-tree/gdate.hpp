@@ -1,22 +1,20 @@
-/**************************************************
-//
-// Projeto 1 - Estrutura de Dados Avançada UFC
-//
-// GDate (Header file)
-//
-// Criação:     09 Mai 2023
-// Atualização: 26 Mai 2023
-//
-// Criado Por:
-// Gustavo Gurgel Medeiros
-// Número de Matrícula [UFC]: 539226
-************************************************/
+/**
+ * @file gdate.hpp
+ * @brief GDate (Header file)
+ *
+ * Project 1 - Advanced Data Structures UFC
+ *
+ * @date Created: May 09, 2023
+ * @date Updated: May 26, 2023
+ *
+ * @author Created by: Gustavo Gurgel Medeiros
+ */
 
 #ifndef _GDATE_H_
 #define _GDATE_H_
 
-#include <iostream> //operações de entrada e saida
-#include <regex>    //expressões regulares
+#include <iostream> // Input and output operations
+#include <regex>    // Regular expressions
 
 using std::ostream;
 
@@ -24,80 +22,86 @@ using std::ostream;
 typedef unsigned int uint;
 typedef long long int llint;
 
+/**
+ * @brief Class representing a Date (MM/DD/YYYY).
+ */
 class GDate {
 public:
-	// ---{ Construtor Padrão }---
+	/**
+	 * @brief Default constructor.
+	 */
 	GDate() = default;
 
-	// ------{ Construtor Por String }------
-	// > Constroi uma data a partir de uma
-	// > string.
-	// >
-    // > str = "string no formato esperado"
-	// >
-	// > !Valida os valores passados!
-    // -------------------------------------
+	/**
+	 * @brief Constructs a date from a string.
+	 *
+	 * Validates the passed values to ensure they match a real date.
+	 *
+	 * @param str String in the expected format (MM/DD/YYYY).
+	 */
 	GDate(std::string str);
 
-	// ------------{ setDate }--------------
-	// > Define os atributos da data a
-	// > partir de um string.
-	// >
-    // > str = "string no formato esperado"
-	// >
-	// > !Valida os valores passados!
-    // -------------------------------------
-	void setDate(std::string);
+	/**
+	 * @brief Sets the date attributes from a string.
+	 *
+	 * Validates the passed values to ensure they match a real date.
+	 *
+	 * @param str String in the expected format (MM/DD/YYYY).
+	 * @throw std::invalid_argument if the string does not match the date format.
+	 */
+	void setDate(std::string str);
 
-	// ----------{ compareDate }------------
-	// > Compara duas datas retornando 0 sé
-	// > as duas são iguas, 1 se a primeira
-	// > é maior que a segunda e (-1) se a
-	// > primeira é menor que a segunda.
-	// >
-	// >
-    // > date1 = "primeira data"
-	// > data2 = "segunda data"
-    // -------------------------------------
+	/**
+	 * @brief Compares two dates.
+	 *
+	 * @param date1 First date to compare.
+	 * @param date2 Second date to compare.
+	 * @return int 0 if they are equal, 1 if date1 > date2, and -1 if date1 < date2.
+	 */
 	static int compareDate(const GDate& date1, const GDate& date2);
 
-	// --------{ &operator<< }----------
-	// > Overload do operador (<<)
-    // ---------------------------------
-	friend ostream &operator<<(ostream &, const GDate &);
+	/**
+	 * @brief Overload of the insertion operator (<<).
+	 *
+	 * @param os Output stream.
+	 * @param date The date to be outputted.
+	 * @return ostream& Reference to the output stream.
+	 */
+	friend ostream &operator<<(ostream &os, const GDate &date);
 
-	// --------{ toString() }----------
-	// > Retorna a data em string
-    // ---------------------------------
+	/**
+	 * @brief Returns the date as a formatted string.
+	 *
+	 * @return std::string The date string in MM/DD/YYYY format.
+	 */
 	std::string toString() const;
 
-	// --------{ &operator<< }----------
-	// > Overload dos operadores de
-	// > comparação entre datas.
-	// >
-	// > usa a função stática publica
-	// > compareDate da classe GDate
-    // ---------------------------------
+	/**
+	 * @name Comparison Operators
+	 * @brief Overloads for date comparison operators.
+	 *
+	 * These operators rely on the public static function `compareDate`.
+	 * @{
+	 */
     bool operator==(const GDate&) const;
     bool operator!=(const GDate&) const;
 	bool operator<(const GDate&) const;
 	bool operator>(const GDate&) const;
 	bool operator<=(const GDate&) const;
 	bool operator>=(const GDate&) const;
+	/** @} */
 
 private :
-	// ---{ Atributos Privados }---
-	uint day{0};  // Dia
-	uint month{0};// Mês
-	uint year{0}; // Ano
+	// ---{ Private Attributes }---
+	uint day{0};   ///< Day
+	uint month{0}; ///< Month
+	uint year{0};  ///< Year
 
-	// --------{ regexDate }----------
-	// > Expressão regular que re-
-	// > presenta uma data no seguin-
-	// > te formato:
-	// >
-	// > MM/DD/YYYY
-    // -------------------------------
+	/**
+	 * @brief Regular expression that represents a date in the following format:
+	 *
+	 * MM/DD/YYYY
+	 */
 	const static std::regex regexDate;
 };
 

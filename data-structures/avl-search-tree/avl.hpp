@@ -1,164 +1,169 @@
-/**************************************************
-//
-// Projeto 1 - Estrutura de Dados Avançada UFC
-//
-// AVL tree (Header file)
-//
-// Criação:     08 Mai 2023
-// Atualização: 26 Mai 2023
-//
-// Criado Por:
-// Nome: Atílio Gomes Luiz
-//
-// Arquivo Adaptado por:
-// Gustavo Gurgel Medeiros
-// Número de Matrícula [UFC]: 539226
-************************************************/
+/**
+ * @file avl.hpp
+ * @brief AVL tree (Header file)
+ *
+ * Project 1 - Advanced Data Structures UFC
+ *
+ * @date Created: May 08, 2023
+ * @date Updated: May 26, 2023
+ *
+ * @author Created by: Atílio Gomes Luiz
+ * @author Adapted by: Gustavo Gurgel Medeiros
+ */
 
 #ifndef _AVL_H_
 #define _AVL_H_
 #include "node.hpp"
 #include "person.hpp"
-#include <string> //palavras
-#include <vector> //retorna com múltiplos nós
+#include <string>
 
+/**
+ * @brief Template class for an AVL Tree.
+ *
+ * @tparam T The data type of the key stored in the tree.
+ */
 template <typename T>
 class avl_tree {
 public:
 
-  // ---{Construtor Padrão}---
+  /**
+   * @brief Default constructor.
+   */
   avl_tree() = default;
 
-  // --------------{add}----------------
-  // > Chamada recursiva do método pri-
-  // > vado add.
-  // >
-  // > key = "chave a adicionar"
-  // > per = "pessoa ligada a chave"
-  // -----------------------------------
-  void add(T key, Person* per = nullptr);
-  void bshow() const;
-
-  // /---------{clear}-----------
-  // > chamada do método recursi-
-  // > vo privado que limpa a
-  // > árvore
-  // ----------------------------
-  void clear();
-
-  // -----{~avl_tree}------
-  // > destrutor de classe
-  // -----------------------
+  /**
+   * @brief Class destructor. Clears the tree memory.
+   */
   ~avl_tree();
 
-  // ----------{clear}------------
-  // > Método público que printa
-  // > a árvora em ordem.
-  // >
-  // > node = "raiz da árvore"
-  // -----------------------------
+  /**
+   * @brief Public method to add a node. Calls the private recursive add method.
+   *
+   * @param key The key to add.
+   * @param per Pointer to the Person associated with the key.
+   */
+  void add(T key, Person* per = nullptr);
+
+  /**
+   * @brief Prints a visual representation of the tree in the console.
+   */
+  void bshow() const;
+
+  /**
+   * @brief Clears the tree by calling the private recursive clear method.
+   */
+  void clear();
+
+  /**
+   * @brief Public method that prints the tree in in-order traversal.
+   */
   void inorderPrint();
 
-  // -----------{searchKey}-----------
-  // > Método públic que pocura um nó
-  // > com uma chave específica. Retor-
-  // > na o endereço do nó
-  // >
-  // > key = "chave a procurar"
-  // ---------------------------------
+  /**
+   * @brief Searches for a node with a specific key.
+   *
+   * @param key The key to search for.
+   * @return Node<T>* Pointer to the found node, or nullptr if not found.
+   */
   Node<T>* searchNodeByKey(T key);
 
-  // -----------{searchNodeByInterval}-----------
-  // > Método públic que pocura os nós que estão
-  // > no intervalo entre keyMin e keyMax. Retorna
-  // > os ponteiros dos nós em um vector estático.
-  // >
-  // > keyMin = "chave mínima"
-  // > keyMax = "chave máxima"
-  // --------------------------------------------
+  /**
+   * @brief Searches for nodes that fall within a specific interval [keyMin, keyMax].
+   *
+   * @param keyMin The minimum boundary of the interval.
+   * @param keyMax The maximum boundary of the interval.
+   * @return std::vector<Node<T>*> A vector containing pointers to the nodes within the interval.
+   */
   std::vector<Node<T>*> searchNodeByInterval(T keyMin, T keyMax);
 
-   // -----------{searchNodeByPrefix}-----------
-  // > Método públic que pocura os nós que estão
-  // > que tem um prefíxo específico. Como essa
-  // > função não é possível implementar apenas
-  // > com os comparadores padrões. É necessário
-  // > passar uma função que compara dois valores
-  // > do tipo T e diz se eles são prefíxos.
-  // >
-  // > prefix = "prefíxo procurado"
-  // > keyMax = "função que diz se é prefíxo"
-  // -------------- ------------------------------
+  /**
+   * @brief Searches for nodes that match a specific prefix.
+   *
+   * Since this cannot be implemented solely with standard comparators,
+   * it requires a function pointer to compare if two values of type T are prefixes.
+   *
+   * @param prefix The prefix to search for.
+   * @param isPrefix A function pointer that checks if a key matches the prefix.
+   * @return std::vector<Node<T>*> A vector containing pointers to the matching nodes.
+   */
   std::vector<Node<T>*> searchNodeByPrefix(T prefix, bool (*isPrefix) (const T&, const T&));
 
 private:
 
   Node<T> *root{nullptr};
 
-  // ---------{heigth}---------
-  // > retorna a alura do nó.
-  // > se é vazio, então a
-  // > altura é zero.
-  // -------------------------
+  /**
+   * @brief Gets the height of a node.
+   *
+   * @param node Pointer to the node.
+   * @return int The height of the node (0 if the node is nullptr).
+   */
   int height(Node<T> *node);
 
-  // --------{balance}----------
-  // > retorna o balanço do nó
-  // > baseado nas alturas direta
-  // > e esquerda.
-  // ----------------------------
+  /**
+   * @brief Gets the balance factor of a node.
+   *
+   * @param node Pointer to the node.
+   * @return int The balance factor (right height - left height).
+   */
   int balance(Node<T> *node);
 
-  // -------{rightRotation}---------
-  // > efetura rotação a direita no
-  // > nó p.
-  // --------------------------------
+  /**
+   * @brief Performs a right rotation on the given node.
+   *
+   * @param p Pointer to the node to rotate.
+   * @return Node<T>* The new root of the rotated subtree.
+   */
   Node<T> *rightRotation(Node<T> *p);
 
-  // ---------{leftRotation}---------
-  // > efetua rotação a esquerda no
-  // > nó p.
-  // --------------------------------
+  /**
+   * @brief Performs a left rotation on the given node.
+   *
+   * @param p Pointer to the node to rotate.
+   * @return Node<T>* The new root of the rotated subtree.
+   */
   Node<T> *leftRotation(Node<T> *p);
 
-  // --------------{add}----------------
-  // > método que recebe uma chave (key)
-  // > e adiciona (de forma recursiva)
-  // > na árvore.
-  // >
-  // > p   = "raiz da árvore"
-  // > key = "chave a adicionar"
-  // > per = "pessoa ligada a chave"
-  // -----------------------------------
+  /**
+   * @brief Recursive method that receives a key and adds it to the tree.
+   *
+   * @param p The root of the current subtree.
+   * @param key The key to add.
+   * @param per Pointer to the Person associated with the key.
+   * @return Node<T>* The updated root of the subtree.
+   */
   Node<T> *add(Node<T> *p, T key, Person* per = nullptr);
 
-
-  // ---------{fixup_node}-----------
-  // > Calcula altura e balanço e re-
-  // > solve problemas de balancea-
-  // > mento do nó p.
-  // >
-  // > p = "nó a consertar"
-  // > key = "chave a adicionar"
-  // ---------------------------------
+  /**
+   * @brief Calculates height and balance, and fixes any balancing issues for node p.
+   *
+   * @param p The node to fix.
+   * @param key The key that was recently added.
+   * @return Node<T>* The updated and balanced node.
+   */
   Node<T> *fixup_node(Node<T> *p, T key);
 
+  /**
+   * @brief Recursive method to print the tree visually.
+   *
+   * @param node The current node.
+   * @param heranca The string representing the branch prefixes for formatting.
+   */
   void bshow(Node<T> *node, std::string heranca) const;
 
-  // ---------{clear}-----------
-  // > método recursivo que limpa
-  // > a árvore.
-  // >
-  // > node = "raiz da árvore"
-  // ----------------------------
+  /**
+   * @brief Recursive method that clears the tree.
+   *
+   * @param node The root of the subtree to clear.
+   * @return Node<T>* nullptr after clearing.
+   */
   Node<T> *clear(Node<T> *node);
 
-  // -------{inorderPrint}--------
-  // > Método privado recursivo que
-  // > printa a árvora em ordem.
-  // >
-  // > node = "raiz da árvore"
-  // -----------------------------
+  /**
+   * @brief Private recursive method that prints the tree in in-order traversal.
+   *
+   * @param node The root of the subtree.
+   */
   void inorderPrint(Node<T>* node);
 };
 
