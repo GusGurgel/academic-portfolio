@@ -1,0 +1,24 @@
+The roguelike game genre, known for its high replayability provided by
+\gls{PCG}, often presents challenges regarding fine-grained control and the
+creation of content with specific developer intentions. Manipulating complex and
+rigid parameters in traditional PCG algorithms renders the design process
+unintuitive. This work explores an approach to overcome this limitation by
+proposing a system that uses \gls{LLM}s to generate maps from natural language
+textual descriptions. Recognizing the inherent limitations of \gls{LLM}s in
+spatial and geometric reasoning, the research developed a hybrid architecture
+that decouples responsibilities: traditional deterministic algorithms manage the
+structural topology and dungeon connectivity, while the \gls{LLM} acts as a
+"creative agent"\ responsible for the semantic generation of narratives,
+enemies, and items. To materialize these elements, a pipeline was implemented
+integrating Structured Outputs and the \gls{RAG} technique over a curated vector
+database of tiles, ensuring visual consistency and mitigating hallucinations. A
+functional game prototype was developed to interpret the generated assets and
+render playable levels. Validation, performed through Semantic Reconstruction
+and Coherence metrics across three distinct models, demonstrated that smaller
+models running locally offer performance comparable to large models. The results
+confirm the technical feasibility of associating natural language with concrete
+game assets, establishing a solid foundation for "text-to-map"\ creation systems
+that preserve user intention.
+
+\keywords{procedural content generation; large language models; roguelike games;
+map generation.}

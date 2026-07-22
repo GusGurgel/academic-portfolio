@@ -1,0 +1,102 @@
+\chapter{Exemplo de Asset Bundle em JSON}
+\label{ap:exemplo_json}
+
+% Definição de cores para ficar parecido com editores de código
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+% Configuração da linguagem JSON
+\lstdefinelanguage{json}{
+basicstyle=\normalfont\ttfamily\scriptsize,
+numbers=left,
+numberstyle=\scriptsize,
+stepnumber=1,
+numbersep=8pt,
+showstringspaces=false,
+breaklines=true,
+frame=lines,
+backgroundcolor=\color{background},
+literate=
+*{0}{{{\color{numb}0}}}{1}
+{1}{{{\color{numb}1}}}{1}
+{2}{{{\color{numb}2}}}{1}
+{3}{{{\color{numb}3}}}{1}
+{4}{{{\color{numb}4}}}{1}
+{5}{{{\color{numb}5}}}{1}
+{6}{{{\color{numb}6}}}{1}
+{7}{{{\color{numb}7}}}{1}
+{8}{{{\color{numb}8}}}{1}
+{9}{{{\color{numb}9}}}{1}
+{:}{{{\color{punct}{:}}}}{1}
+{,}{{{\color{punct}{,}}}}{1}
+{\{}{{{\color{delim}{\{}}}}{1}
+{\}}{{{\color{delim}{\}}}}}{1}
+{[}{{{\color{delim}{[}}}}{1}
+{]}{{{\color{delim}{]}}}}{1},
+}
+
+\begin{lstlisting}[language=json, caption={Exemplo de saída \gls{JSON}}, label={lst:json_code}]
+{
+    "player": {
+        "back_history": "...",
+        "tile_with_texture": {
+            "name": "...",
+            "description": "...",
+            "color": "...",
+            "texture": {
+                "tileset_position": {
+                    "x": 0,
+                    "y": 0
+                }
+            }
+        }
+    },
+    "final_objective": {
+        "back_history": "...",
+        "tile_with_texture": { 
+            ...
+        }
+    },
+    "dungeon_levels": {
+        "items": [
+            {
+                "description": "...",
+                "name": "...",
+                "depth": 0,
+                "wall_tile_with_texture": {
+                    ...
+                },
+                "floor_tile_with_texture": {
+                    ...
+                }
+            }
+        ]
+    },
+    "enemies": {
+        "items": [
+            {
+                "weight": 0,
+                "thread": 0,
+                "tile_with_texture": { 
+                    ...
+                }
+            }
+        ]
+    },
+    "weapons": {
+        "items": [
+            {
+                "rarity": 0,
+                "weight": 0,
+                "mana_cost": 0,
+                "weapon_type": "...",
+                "tile_with_texture": {
+                    ...
+                }
+            }
+        ]
+    }
+}
+\end{lstlisting}

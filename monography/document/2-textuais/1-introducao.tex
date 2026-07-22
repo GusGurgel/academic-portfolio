@@ -1,0 +1,109 @@
+\chapter{Introdução}
+\label{cap:introducao}
+
+Os jogos digitais representam uma área de significativa importância na sociedade
+contemporânea, com aplicações que abrangem desde o entretenimento até fins
+educacionais. A indústria de jogos eletrônicos tem demonstrado um crescimento
+notável, consolidando-se como um mercado de alcance global sem precedentes
+\cite{wijman2023newzoo}.
+
+Nesse contexto, diversos jogos do gênero \textit{roguelike} têm alcançado grande
+sucesso, com títulos notáveis como \textit{Hollow
+    Knight}\footnote{Página da Steam do Hollow Knight (Acesso em: 23 jan. 2026): https://store.steampowered.com/app/367520/Hollow\_Knight/},
+\textit{Undermine}\footnote{Página da Steam do UnderMine (Acesso em: 23 jan. 2026): \url{https://store.steampowered.com/app/656350/UnderMine/}}
+e \textit{Dead
+    Cells}\footnote{Página da Steam do Dead Cells (Acesso em: 23 jan. 2026): \url{https://store.steampowered.com/app/588650/Dead\_Cells/}}
+destacando-se pela capacidade de proporcionar experiências desafiadoras e
+imersivas. O gênero \textit{roguelike}, um subgênero de \gls{RPG},
+caracteriza-se fundamentalmente pela exploração de masmorras geradas
+aleatoriamente, combate tipicamente baseado em turnos e a morte permanente do
+personagem, que impõe o recomeço do jogo após uma derrota
+\cite{laurindo2024relatorio}.
+
+Um elemento fundamental que define a experiência em muitos jogos
+\textit{roguelike} é a \gls{PCG}. \gls{PCG} é uma técnica que utiliza algoritmos
+para criar automaticamente conteúdos de jogo, como mapas e cenários, sendo
+fundamental para garantir que cada sessão de jogo seja única e ofereça alta
+rejogabilidade \cite{sepanmaa2024procedural}. Embora a \gls{PCG} seja poderosa para
+gerar uma vasta quantidade de conteúdo, um de seus desafios históricos reside na
+dificuldade de controlar o resultado. Tradicionalmente, os desenvolvedores
+manipulam parâmetros complexos e abstratos para guiar o processo gerador, o que
+muitas vezes torna a criação de conteúdo com intenções específicas uma tarefa
+pouco intuitiva e iterativa \cite{lazaridis2024creating}.
+
+A busca por maior controle na \gls{PCG} tem sido um campo ativo de
+pesquisa.  Contudo, gerar conteúdo que reflita intenções específicas e
+restrições de alto nível permanece um desafio. Recentemente, os avanços em
+\gls{LLM}s abriram novas e promissoras formas para abordar este problema. A
+capacidade inerente dos \gls{LLM}s de compreender e processar linguagem natural
+oferece uma interface fundamentalmente nova para a geração de conteúdo: em vez
+de ajustar parâmetros, os desenvolvedores ou mesmo os jogadores poderiam
+simplesmente descrever o conteúdo desejado textualmente.
+
+Essa abordagem, frequentemente denominada \textit{"text-to-level"} ou
+\textit{"text-to-map"}, transforma o \gls{LLM} em um tradutor de intenções
+humanas para estruturas de jogo concretas. Um trabalho pioneiro nesta área,
+\textit{MarioGPT}, demonstrou a viabilidade de treinar um \gls{LLM} para gerar
+níveis de \textit{Super Mario Bros} a partir de descrições simples como "muitos
+canos, poucos inimigos, elevação baixa"\ \cite{sudhakaran2023mariogpt}. Este
+estudo provou que os \gls{LLM}s podem não apenas gerar sequências textuais, mas
+também produzir conteúdo estruturado e funcional para jogos, abordando um dos
+principais desafios da \gls{PCG}.
+
+Inspirado por esses avanços, este trabalho investiga a aplicação dessa abordagem
+no domínio dos jogos \textit{roguelike}. Esse gênero é caracterizado por mapas
+com restrições estruturais, como a conectividade entre salas, a disposição de
+corredores e a distribuição lógica de inimigos e tesouros. Sendo assim, o
+objetivo principal é investigar como os LLMs podem traduzir uma descrição
+textual em um mapa funcional, garantindo que a estrutura resultante se adéque a
+essas convenções.
+
+Este estudo busca desenvolver um sistema que utilize um \gls{LLM} para
+interpretar descrições textuais e produzir uma representação de mapa
+estruturada, que possa ser posteriormente renderizada por um motor de jogo. A
+pesquisa se concentrará na eficácia de técnicas de engenharia de \textit{prompt}
+para guiar o modelo, garantindo que os mapas gerados não apenas correspondam à
+descrição, mas também sejam funcionalmente válidos, respeitando as restrições
+estruturais do gênero mencionadas anteriormente (como conectividade de salas e
+disposição de corredores).  Acredita-se que tal abordagem oferece um método de
+criação de conteúdo procedural mais intuitivo e expressivo em comparação com
+técnicas algorítmicas tradicionais, como Perlin Noise \cite{perlin1985image} e
+Random Walk \cite{pearson1905problem}, contribuindo com conhecimento técnico e
+metodológico.
+
+\section{Contribuições}
+\label{sec:contribuicoes}
+
+Considerando os resultados obtidos e a validação do sistema proposto, este
+trabalho apresenta contribuições técnicas e práticas para a área de \gls{PCG}
+assistida por Inteligência Artificial. As principais contribuições podem ser
+sintetizadas em três pilares:
+
+\begin{itemize}
+    \item \textbf{Arquitetura Híbrida de Geração "Text-to-Map":} O
+          desenvolvimento de uma metodologia que desacopla a responsabilidade criativa
+          da responsabilidade estrutural. Esta abordagem mitiga as limitações de
+          raciocínio espacial inerentes aos \gls{LLM}s, delegando a topologia a
+          algoritmos determinísticos enquanto utiliza o modelo de linguagem para
+          enriquecer semanticamente o jogo (narrativa, inimigos e itens). O sistema
+          materializa essa criação através de arquivos estruturados em \gls{JSON},
+          garantindo interoperabilidade com motores de jogo (um exemplo de um artefato
+          JSON gerado encontra-se disponível no Apêndice~\ref{ap:exemplo_json}).
+
+    \item \textbf{Dataset Curado para RAG em Jogos:} A implementação de um
+          \textit{pipeline} técnico que integra \textit{Structured Outputs} e
+          \gls{RAG}. Neste contexto, a curadoria e anotação manual de um
+          \textit{dataset}, composto por 489 pares de descrições e imagens, constitui
+          uma contribuição técnica relevante deste trabalho, estabelecendo uma base
+          sólida para a associação entre linguagem natural e ativos de \textit{pixel
+              art}.
+
+    \item \textbf{Ferramentas de Código Aberto:} A disponibilização de dois
+          artefatos de \textit{software} funcionais e integrados, que servem como
+          prova de conceito e base para pesquisas futuras. Os códigos-fonte do projeto
+          foram tornados públicos nos seguintes repositórios:
+          \begin{itemize}
+              \item \textbf{Gerador de Assets (Python):} \url{https://github.com/GusGurgel/tcc-roguelike-assets-generator}
+              \item \textbf{Gerador de Mapas (Godot):} \url{https://github.com/GusGurgel/tcc-roguelike}
+          \end{itemize}
+\end{itemize}

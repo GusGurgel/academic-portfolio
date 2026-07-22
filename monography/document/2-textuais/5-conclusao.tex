@@ -1,0 +1,90 @@
+\chapter{Conclusões e Trabalhos Futuros}
+\label{chap:conclusoes-e-trabalhos-futuros}
+
+O presente trabalho investigou o potencial e a viabilidade da utilização de
+\gls{LLM}s no contexto da \gls{PCG} para jogos do gênero \textit{roguelike}. A
+pesquisa partiu da identificação de uma lacuna significativa na literatura e nas
+capacidades técnicas atuais: embora os \gls{LLM}s demonstrem proficiência
+semântica e criativa, eles possuem limitações intrínsecas no raciocínio espacial
+e geométrico, o que dificulta a geração direta de topologias de mapas complexos
+e funcionais.
+
+Para solucionar este problema, foi proposta e implementada uma arquitetura
+híbrida baseada no desacoplamento de responsabilidades. O sistema delegou a
+construção estrutural e topológica da masmorra a algoritmos de \gls{PCG}
+tradicionais e determinísticos, garantindo a jogabilidade e a conectividade das
+salas.  Simultaneamente, atribuiu-se ao \gls{LLM} a função de "agente criativo",
+responsável pela geração semântica de ativos, incluindo a definição de temas,
+narrativas, inimigos e itens. Esta abordagem permitiu contornar as deficiências
+espaciais dos modelos de linguagem, aproveitando sua capacidade de interpretar
+intenções textuais e enriquecer o contexto do jogo.
+
+Um componente central para o sucesso desta implementação foi a utilização da
+técnica de \gls{RAG} aliada ao uso de \textit{Structured Outputs}. A segmentação
+do banco vetorial em três categorias distintas (\textit{Entities},
+\textit{Items} e \textit{Environments}) provou-se uma estratégia eficaz para
+mitigar alucinações visuais, impedindo, por exemplo, a seleção de texturas de
+arquitetura para representar personagens. A curadoria e anotação manual deste
+\textit{dataset}, composto por 489 pares de descrições e imagens, constitui uma
+contribuição técnica relevante deste trabalho, estabelecendo uma base sólida
+para a associação entre linguagem natural e ativos de \textit{pixel art}.
+
+A validação do sistema, realizada através de uma abordagem quantitativa e
+qualitativa, corroborou a eficácia do \textit{pipeline} proposto. A aplicação da
+métrica de Reconstrução Semântica, baseada na similaridade de cosseno,
+demonstrou que o sistema é capaz de preservar a intenção original do usuário ao
+traduzir descrições textuais em objetos de jogo. Mais notavelmente, os testes
+comparativos entre diferentes modelos revelaram que \gls{LLM}s compactos e
+executados localmente, como o \texttt{openai/gpt-oss-20b}, apresentam desempenho
+pareável a modelos de maior porte e complexidade como o \texttt{gpt-oss-120b} e
+o \texttt{llama-4-maverick}, confirmando a viabilidade técnica de integrar esta
+tecnologia em hardware de consumo, sem dependência mandatória de conexões com a
+nuvem.
+
+Em suma, este trabalho demonstra que a integração entre algoritmos clássicos de
+\gls{PCG} e a moderna Inteligência Artificial Generativa não apenas é possível,
+como também oferece um caminho promissor para o desenvolvimento de jogos. O
+protótipo desenvolvido exemplifica como a barreira técnica da criação de
+conteúdo pode ser reduzida, permitindo que desenvolvedores e jogadores utilizem
+linguagem natural para moldar experiências de jogo únicas e coerentes.
+
+\section{Limitações e Trabalhos Futuros}
+
+Apesar dos resultados satisfatórios obtidos com a arquitetura proposta, o
+sistema apresenta limitações que abrem caminhos para futuras investigações e
+aprimoramentos. A restrição mais significativa reside na dependência de um banco
+vetorial estático para a representação visual. O mecanismo de \gls{RAG}, embora
+eficiente na recuperação, está limitado ao universo de texturas pré-existentes
+no \textit{dataset}. Em cenários nos quais a descrição textual do usuário solicita um
+objeto específico não catalogado (por exemplo, uma "foice"), o sistema seleciona
+a aproximação semântica mais próxima disponível (como uma "espada"), o que pode
+gerar inconsistências visuais e reduzir a liberdade criativa.
+
+Adicionalmente, o escopo atual de geração restringe-se a entidades isoladas. O
+sistema instancia objetos individuais, mas ainda não possui a capacidade de
+orquestrar a geração de estruturas compostas ou arranjos arquitetônicos
+complexos, como monumentos, cemitérios ou acampamentos, que exigiriam um
+entendimento mais refinado de composição de cena por parte do \gls{LLM}.  Diante
+destes desafios, sugerem-se as seguintes direções para trabalhos futuros:
+
+\begin{enumerate}
+    \item \textbf{Integração com IA Generativa de Imagens:} A substituição ou
+    complementação do banco vetorial fixo por modelos de difusão latente (como
+    \textit{Stable Diffusion}) gerando texturas em tempo real. Isso eliminaria a
+    limitação do acervo de ativos, permitindo que a representação visual seja
+    tão dinâmica e ilimitada quanto as descrições textuais geradas pelo
+    \gls{LLM}.
+
+    \item \textbf{Geração de Estruturas Complexas:} Expandir a lógica do
+    \textit{Gerador de Assets} para que o \gls{LLM} possa definir não apenas
+    objetos únicos, mas conjuntos de elementos pré-fabricados
+    (\textit{prefabs}). Isso permitiria povoar o mapa com micro-cenários
+    semanticamente coesos, aumentando a profundidade da ambientação.
+
+    \item \textbf{Aplicação em Novos Gêneros:} Adaptar a metodologia para outros
+    gêneros de jogos, como RPGs, Plataforma ou \textit{Puzzles}. No contexto de
+    \gls{RPG}s, por exemplo, o sistema poderia ser expandido para gerar
+    \gls{NPC}s com árvores de diálogos complexas, missões personalizadas e
+    histórias de fundo que reagem dinamicamente ao tema escolhido pelo jogador,
+    explorando ainda mais a capacidade narrativa dos modelos de linguagem.
+\end{enumerate}

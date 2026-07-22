@@ -1,0 +1,26 @@
+O gênero de jogos \textit{roguelike}, conhecido pela alta rejogabilidade
+proporcionada pela \gls{PCG}, frequentemente apresenta desafios no que tange ao
+controle fino e à criação de conteúdo com intenções específicas por parte dos
+desenvolvedores. A manipulação de parâmetros complexos e pouco flexíveis em
+algoritmos de \gls{PCG} tradicionais torna o processo de design pouco intuitivo.
+Este trabalho explora uma abordagem para superar essa limitação, propondo um
+sistema que utiliza \gls{LLM} para gerar mapas a partir de descrições textuais
+em linguagem natural.  Reconhecendo as limitações inerentes das LLMs em
+raciocínio espacial e geométrico, a pesquisa desenvolveu uma arquitetura híbrida
+que desacopla responsabilidades: algoritmos determinísticos tradicionais
+gerenciam a topologia estrutural e a conectividade da masmorra, enquanto a
+\gls{LLM} atua como um "agente criativo"\ responsável pela geração semântica de
+narrativas, inimigos e itens.  Para materializar esses elementos, foi
+implementado um \textit{pipeline} que integra \textit{Structured Outputs} e a
+técnica de \gls{RAG} sobre um banco vetorial curado de \textit{tiles},
+garantindo a consistência visual e mitigando alucinações. Um jogo funcional foi
+desenvolvido para interpretar os ativos gerados e renderizar níveis jogáveis. A
+validação, realizada através de métricas de Reconstrução Semântica e Coerência
+sobre três modelos distintos, demonstrou que modelos menores executados
+localmente apresentam desempenho comparável a grandes modelos. Os resultados
+confirmam a viabilidade técnica de associar linguagem natural a ativos de jogo
+concretos, estabelecendo uma base sólida para sistemas de criação
+\textit{"text-to-map"} que preservam a intenção do usuário.
+
+\palavraschave{geração procedural de conteúdo; modelos de linguagem de larga
+escala; jogos roguelike; geração de mapas.}

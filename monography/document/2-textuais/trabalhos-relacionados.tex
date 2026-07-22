@@ -1,0 +1,111 @@
+\chapter{Trabalhos Relacionados}
+\label{cap:trabalhos-relacionados}
+
+A utilização de Modelos de \gls{LLM} na \gls{PCG} em jogos é uma área de
+pesquisa em expansão. Diversos trabalhos têm explorado o potencial dos \gls{LLM}s
+para criar não apenas elementos de jogo isolados, mas também mundos e narrativas
+coesas. Nesta seção, são apresentados trabalhos relevantes que abordam a geração
+de conteúdo de jogos com \gls{LLM}s, estabelecendo um paralelo com a proposta deste
+TCC e contextualizando suas contribuições. A análise segue uma ordem decrescente
+de afinidade, partindo do trabalho mais diretamente relacionado até os que
+apresentam semelhanças em aspectos mais específicos da abordagem.
+
+O artigo de \citeonline{nasir2024word2world}, intitulado \textit{Word2World},
+apresenta uma abordagem que se assemelha de forma significativa aos objetivos
+deste TCC. Os autores propõem um sistema que utiliza \gls{LLM}s para gerar
+mundos de jogo 2D jogáveis a partir de uma história inicial. O processo é
+realizado em um \textit{pipeline} multifásico que inclui a criação da história,
+a extração de informações cruciais (como personagens,
+\textit{tiles}\footnote{\textit{tiles} (ou ladrilhos, em português) são pequenas imagens
+    ou gráficos que são usados para construir o cenário ou mapa do jogo} e
+objetivos), a geração do mundo e um ciclo de \textit{feedback} para avaliação e
+refinamento. A principal semelhança com o presente trabalho reside no objetivo
+central de conectar uma narrativa de alto nível à geração de um nível de jogo
+concreto e coerente, utilizando um \gls{LLM} para mediar ambas as tarefas. A
+principal diferença, contudo, está no escopo de aplicação. Enquanto
+\textit{Word2World} foca em jogos 2D de visão superior de forma genérica, este
+TCC se especializa no gênero \textit{roguelike}, que possui restrições e
+características próprias, como a alta rejogabilidade e a estrutura de masmorras,
+aspectos que exigem uma adaptação e especialização do processo de geração.
+
+De forma similar, o artigo \textit{MarioGPT}, de
+\citeonline{sudhakaran2023mariogpt}, demonstra a viabilidade da geração de níveis
+a partir de descrições textuais, focando no gênero de plataforma. O sistema
+utiliza um modelo \gls{GPT}-2 ajustado para criar fases do jogo \textit{Super Mario
+Bros}\footnote{Site oficial do \textit{Super Mario
+Bros} (Acesso em: 23 jan. 2026): \url{https://www.nintendo.com/pt-pt/Jogos/NES/Super-Mario-Bros-803853.html}}
+a partir de \textit{prompts} simples, como "muitos canos, poucos inimigos,
+elevação baixa". A semelhança com este TCC reside na abordagem
+\textit{"text-to-level"}, provando que \gls{LLM}s podem interpretar descrições e
+produzir conteúdo estruturado e funcional para um jogo. No entanto, a distinção
+fundamental está no gênero e na complexidade estrutural. Enquanto os níveis de
+plataforma são tipicamente lineares, os mapas de \textit{roguelike} exigem uma
+estrutura de grafo com salas interconectadas, um desafio de conectividade e
+\textit{layout} que não é o foco principal de \textit{MarioGPT}.
+
+A dissertação de mestrado de \citeonline{auxtero2023game} propõe o sistema
+\gls{GEDC}, explorando a criação de um sistema para o design de ambientes de
+jogos, utilizando geração procedural com inteligência artificial para facilitar
+a criação de narrativas interativas. O trabalho foca em desenvolver um sistema
+intuitivo que permite aos usuários criar e experienciar diferentes histórias,
+automatizando a geração inicial do ambiente, mas permitindo customização
+posterior. A semelhança com este TCC está na aplicação de \gls{LLM}s para a
+geração automática de ambientes de jogo e no objetivo de criar uma ferramenta
+acessível para criadores. A diferença reside no foco: o trabalho de
+\citeonline{auxtero2023game} é mais abrangente, visando jogos de aventura em
+geral e com grande ênfase na interface de customização manual, enquanto este TCC
+se concentra nas restrições e particularidades algorítmicas específicas do
+gênero \textit{roguelike}.
+
+Por fim, em um artigo publicado na \textit{2024 IEEE Conference on Games} (CoG),
+\citeonline{gallotta2024consistent} exploram a geração consistente de
+conteúdo através de um \textit{framework} chamado \textit{LLMaker}. A principal
+contribuição do trabalho é o uso de \textit{function calling}, no qual o \gls{LLM}
+atua como um tradutor de comandos em linguagem natural para chamadas de funções
+formais em um sistema de \textit{back-end}. Essa abordagem garante que toda
+modificação no conteúdo do jogo (neste caso, \textit{layouts} de masmorras) seja
+válida e adira às restrições do domínio, mitigando o problema de alucinações e
+inconsistências do \gls{LLM}. A semelhança com este TCC está no reconhecimento
+do desafio da consistência na geração de conteúdo e na busca por uma solução que
+garanta a validade dos artefatos gerados. O domínio de aplicação, focado em
+\textit{dungeon crawlers}, também é bastante próximo ao gênero
+\textit{roguelike}. A diferença principal, entretanto, está no paradigma de
+interação. \textit{LLMaker} é uma ferramenta de \textit{codesign} iterativo, na qual um
+designer humano interage continuamente com o sistema via \textit{chat}, enquanto a
+proposta deste TCC foca em um processo mais automatizado de geração inicial a
+partir de uma entrada textual.
+
+O Quadro~\ref{qua:comparativo_trabalhos} apresenta uma análise comparativa dos
+trabalhos relacionados mais próximos. A comparação é baseada em critérios
+relevantes para esta pesquisa, destacando as semelhanças e diferenças entre as
+abordagens.
+
+\begin{quadro}[h!]
+    \centering
+    \caption{Comparativo dos Trabalhos Relacionados}
+    \label{qua:comparativo_trabalhos}
+    \resizebox{\textwidth}{!}{
+        \UFCqua{}{
+            \begin{tabular}{|l|c|c|c|c|}
+                % \toprule
+                \hline
+                \textbf{Trabalho}             & \shortstack{Geração de níveis                                        \\a partir de descrições textuais} & \shortstack{Foco em engenharia                                        \\de prompt} & \shortstack{Saída em formato\\estruturado (e.g., JSON)} & \shortstack{Abordagem focada\\no gênero Roguelike} \\
+                % \midrule
+                \hline
+                Word2World \cite{nasir2024word2world}    & x                             & x          &            &            \\
+                \hline
+                MarioGPT \cite{sudhakaran2023mariogpt} & x                             &            &            &            \\
+                \hline
+                \gls{GEDC} \cite{auxtero2023game}        & x                             &            & x          &            \\
+                \hline
+                LLMaker \cite{gallotta2024consistent} & x                             & x          &            &            \\
+                \hline
+                \textbf{Trabalho Proposto}    & \textbf{x}                    & \textbf{x} & \textbf{x} & \textbf{x} \\
+                \hline
+                % \bottomrule
+            \end{tabular}
+        }{
+            \Fonte{Elaborado pelo autor}
+        }
+    }
+\end{quadro}
