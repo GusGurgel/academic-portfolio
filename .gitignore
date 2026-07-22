@@ -1,70 +1,347 @@
-# Personal
+# ==========================================
+# General, Temporary Files, and Editors
+# ==========================================
 .zed
+*.tmp
+*.log
+*.bak
+*.bak[0-9]*
+*.sav
+*.swp
+.*.swp
+*~[0-9]*
+.texpadtmp
+*.lyx~
+*.backup
+*.tps
+./auto/*
+*.el
 
-# Prerequisites
+# ==========================================
+# C / C++ / Fortran / CMake
+# ==========================================
+# Prerequisites and Headers
 *.d
+*.gch
+*.pch
 
-# Compiled Object files
+# Compiled Object Files and Libraries
 *.slo
 *.lo
 *.o
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
 *.so.*
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
 *.lai
 *.la
 *.a
 *.lib
+*.mod
+*.smod
 
-# Executables
+# Executables, Linker, and Debugger Files
+*.ilk
+*.pdb
+*.dwo
 *.exe
 *.out
 *.app
 
-# Build directories
+# Build Directories and CMake
 build/
 Build/
 build-*/
-
-# CMake generated files
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 
-# Temporary files
-*.tmp
-*.log
-*.bak
-*.swp
-
-# vcpkg
+# Tools and Cache
 vcpkg_installed/
-
-# debug information files
-*.dwo
-
-# test output & cache
 Testing/
 .cache/
+
+# ==========================================
+# LaTeX - Core and Build Tools
+# ==========================================
+# Core Auxiliary Files
+*.aux
+*.lof
+*.lot
+*.fls
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+# Intermediate Documents
+*.dvi
+*.xdv
+*-converted-to.*
+.pdf
+
+# Bibliography (bibtex/biblatex/biber)
+*.bbl
+*.bbl-SAVE-ERROR
+*.bcf
+*.bcf-SAVE-ERROR
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Build Tools
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+*.rubbercache
+rubber.cache
+latex.out/
+
+# ==========================================
+# LaTeX - Specific Packages
+# ==========================================
+# algorithms
+*.alg
+*.loa
+
+# achemso
+acs-*.bib
+
+# amsthm
+*.thm
+
+# attachfile2
+*.atfi
+
+# beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# changes
+*.soc
+*.loc
+
+# comment
+*.cut
+
+# context
+*.tuc
+*.tui
+*.tuo
+
+# cprotect
+*.cpt
+
+# elsarticle
+*.spl
+
+# endnotes
+*.ent
+
+# fixme
+*.lox
+
+# feynmf/feynmp
+*.mf
+*.mp
+*.t[1-9]
+*.t[1-9][0-9]
+*.tfm
+
+#(r)(e)ledmac/(r)(e)ledpar
+*.end
+*.?end
+*.[1-9]
+*.[1-9][0-9]
+*.[1-9][0-9][0-9]
+*.[1-9]R
+*.[1-9][0-9]R
+*.[1-9][0-9][0-9]R
+*.eledsec[1-9]
+*.eledsec[1-9]R
+*.eledsec[1-9][0-9]
+*.eledsec[1-9][0-9]R
+*.eledsec[1-9][0-9][0-9]
+*.eledsec[1-9][0-9][0-9]R
+
+# glossaries
+*.acn
+*.acr
+*.glg
+*.glg-abr
+*.glo
+*.glo-abr
+*.gls
+*.gls-abr
+*.glsdefs
+*.lzo
+*.lzs
+*.slg
+*.sls
+
+# gnuplot
+*.gnuplot
+*.table
+
+# gnuplottex
+*-gnuplottex-*
+
+# gregoriotex
+*.gaux
+*.glog
+*.gtex
+
+# htlatex
+*.4ct
+*.4tc
+*.idv
+*.lg
+*.trc
+*.xref
+
+# hypdoc
+*.hd
+
+# hyperref
+*.brf
+
+# knitr
+*-concordance.tex
+*-tikzDictionary
+
+# listings
+*.lol
+
+# luatexja-ruby
+*.ltjruby
+
+# makeidx
+*.idx
+*.ilg
+*.ind
+
+# minitoc
+*.maf
+*.mlf
+*.mlt
+*.mtc[0-9]*
+*.slf[0-9]*
+*.slt[0-9]*
+*.stc[0-9]*
+
+# minted
+_minted*
+*.data.minted
+*.pyg
+
+# morewrites
+*.mw
+
+# newpax
+*.newpax
+
+# nomencl
+*.nlg
+*.nlo
+*.nls
+
+# pax
+*.pax
+
+# pdfpcnotes
+*.pdfpc
+
+# sagetex
+*.sagetex.sage
+*.sagetex.py
+*.sagetex.scmd
+
+# scrwfile
+*.wrt
+
+# spelling
+*.spell.bad
+*.spell.txt
+
+# svg
+svg-inkscape/
+
+# sympy
+*.sout
+*.sympy
+sympy-plots-for-*.tex/
+
+# pdfcomment
+*.upa
+*.upb
+
+# pythontex
+*.pytxcode
+pythontex-files-*/
+
+# tcolorbox
+*.listing
+
+# thmtools
+*.loe
+
+# TikZ & PGF
+*.dpth
+*.md5
+*.auxlock
+
+# titletoc
+*.ptc
+
+# todonotes
+*.tdo
+
+# vhistory
+*.hst
+*.ver
+
+# easy-todo
+*.lod
+
+# xcolor
+*.xcp
+
+# xmpincl
+*.xmpi
+
+# xindy
+*.xdy
+
+# xypic
+*.xyc
+*.xyd
+
+# endfloat
+*.ttt
+*.fff
+
+# Latexian
+TSWLatexianTemp*
+
+# expex forward references
+*-tags.tex
+
+# standalone packages
+*.sta
+
+# Makeindex log files
+*.lpz
+
+# xwatermark package
+*.xwm
