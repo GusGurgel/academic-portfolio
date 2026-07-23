@@ -342,6 +342,7 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+*.ist
 
 # xwatermark package
 *.xwm
