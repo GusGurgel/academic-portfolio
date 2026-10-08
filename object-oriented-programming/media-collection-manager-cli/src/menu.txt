@@ -1,0 +1,7 @@
+{texto que aparece no início do programa}
+========================================
+=                                      =
+=       _- Midia Manipualtor -_        =
+=                                      =
+= By: Gustavo Gurgel                   =
+========================================

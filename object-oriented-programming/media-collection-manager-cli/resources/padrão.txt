@@ -1,0 +1,23 @@
+DVD
+"C418", 							  //Autor
+"Sweden",							  //Titulo
+vector<string>{"1","2"},		  	  //Faixas
+Data{23,11,2034},					  //Lançamento
+"Game Music",						  //Genero
+vector<string>{"Piano","Tranquila"},  //Keywords
+vector<string>{"MP3","MP5","ENIS"},	  //Formato Áudio
+vector<string>{},	  				  //Formato Tela
+vector<string>{"en", "pt-br"}));	  //Legendas
+
+
+CD
+"C418", 							  //Autor
+"Sweden",							  //Titulo
+vector<string>{"1","2"},		  	  //Faixas
+Data{12,12,1232},					  //Lançamento
+"Game Music",						  //Genero
+vector<string>{"Piano","Tranquila"},  //Keywords
+300,	  							  //Tempo
+25,	  				 			      //Volume
+false));  							  //Coletanea
+

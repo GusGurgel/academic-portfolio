@@ -1,0 +1,1 @@
+Essa pasta contem os arquivos de Mídia salvos na memória pelo gerenciador de Mídia.
