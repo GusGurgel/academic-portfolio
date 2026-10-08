@@ -1,0 +1,5 @@
+ENTRADA
+Um vetor possuindo 5 elementos.
+
+SAÍDA
+A soma do maior elemento com o menor.

@@ -1,0 +1,6 @@
+ENTRADA
+Três amigos jogaram na loteria. Caso eles ganhem, o prêmio deve ser repartido proporcionalmente ao valor que cada um deu para a realização da aposta. 
+Faça um programa que lê quanto cada apostador investiu, lê o valor do prêmio, e escreve quanto cada um ganharia.
+
+SAÍDA
+Imprima os valores da saída com duas casas decimais. 

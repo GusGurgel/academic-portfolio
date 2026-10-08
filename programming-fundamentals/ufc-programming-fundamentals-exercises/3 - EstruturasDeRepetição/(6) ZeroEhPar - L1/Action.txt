@@ -1,0 +1,5 @@
+ENTRADA
+Dois números inteiros A e B.
+
+SAÍDA
+A soma de todos os números pares, ou "invalido" caso B seja menor que A.

@@ -1,0 +1,5 @@
+ENTRADA
+Receba um texto (com no máximo 100 caracteres) formado por letras minúsculas, números, espaços e os caracteres (tokens) '#' e ';', que separam as frases neste texto.
+
+SAÍDA
+Separe o texto em frases substituindo os tokens ('#' e ';') por '\n'.

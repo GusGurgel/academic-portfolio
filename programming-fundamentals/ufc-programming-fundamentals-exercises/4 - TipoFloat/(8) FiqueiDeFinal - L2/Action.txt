@@ -1,0 +1,6 @@
+ENTRADA
+3 notas: nota1, nota2 e nota_final, uma por linha
+
+SAÍDA
+aprovado, reprovado, aprovado na final ou reprovado na final
+Obs: descarte a nota da final se ela não for necessária

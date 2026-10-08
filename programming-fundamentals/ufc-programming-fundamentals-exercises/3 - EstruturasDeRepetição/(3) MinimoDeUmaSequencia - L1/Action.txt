@@ -1,0 +1,5 @@
+ENTRADA
+5 valores inteiros um por linha.
+
+SAÍDA
+O menor valor inteiro lido.

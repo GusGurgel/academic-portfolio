@@ -1,0 +1,6 @@
+ENTRADA
+1ª linha: Os valores de x e n, em que x é o número que corresponde ao Ultron e n a quantidade de elementos da sequência de números.
+2ª linha: Os elementos da sequência de números.
+
+SAÍDA
+A quantidade de vezes que o elemento aparece na sequência de números.

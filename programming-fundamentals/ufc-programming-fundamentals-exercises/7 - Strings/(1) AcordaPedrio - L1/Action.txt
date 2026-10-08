@@ -1,0 +1,10 @@
+ENTRADA
+um caracter
+
+SAÍDA
+*Se for uma letra maiúscula, imprima a letra minúscula.
+
+*Se for uma letra minúscula, imprima a letra maiúscula.
+
+*Se ele for qualquer outro caractere, imprima ele mesmo.
+

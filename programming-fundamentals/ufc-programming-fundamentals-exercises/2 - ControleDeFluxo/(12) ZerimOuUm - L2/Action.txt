@@ -1,0 +1,5 @@
+ENTRADA
+As opções dos 3 jogadores, uma por linha.
+
+SAÍDA
+O jogador(jog1, jog2, jog3) que ganhou ou "empate".

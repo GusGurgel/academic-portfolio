@@ -1,0 +1,1 @@
+Utilizando ponteiros para criar uma função com múltiplos retornos.

@@ -1,0 +1,8 @@
+ENTRADA
+linha 1: quantidade de figurinha total do album(1 a 50)
+linha 2: quantidade de figurinhas que Baruel possui (no minimo 1a)(0 a 100)
+linha 3: números das figurinhas de forma ORDENADA.
+
+SAÍDA
+linha 1: as figuras que ele tem pra trocar ou 'N' se nenhuma
+linha 2: os números das figuras que faltam ou 'N' se nenhuma

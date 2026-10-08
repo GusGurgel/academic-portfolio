@@ -1,0 +1,6 @@
+ENTRADA
+Uma disciplina tem uma prova de peso 5, uma prova de peso 3, e um trabalho de peso 2. 
+Leia as 3 notas (nesta ordem).
+
+SAÍDA
+Imprima a média final.

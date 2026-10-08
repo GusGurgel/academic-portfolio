@@ -1,0 +1,5 @@
+ENTRADA
+o número inteiro n.
+
+SAÍDA
+o n-ésimo termo na sequência.

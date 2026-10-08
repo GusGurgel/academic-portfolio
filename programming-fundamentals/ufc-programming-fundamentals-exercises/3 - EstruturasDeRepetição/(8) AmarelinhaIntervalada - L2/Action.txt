@@ -1,0 +1,6 @@
+ENTRADA
+1a linha:  a quantidade n de números, o limite inferior e o limite superior do intervalo.
+2a linha: a sequência de n números.
+
+SAÍDA
+quantos números estão dentro do intervalo, incluindo os limites inferior e superior.

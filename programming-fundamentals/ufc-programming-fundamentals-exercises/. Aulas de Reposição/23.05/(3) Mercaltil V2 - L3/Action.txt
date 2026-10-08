@@ -1,0 +1,7 @@
+ENTRADA
+linha 1: o chute do primeiro jogador
+linha 2: a escolha do segundo jogador (0 para menor e 1 para maior)
+linha 3: o valor real do produto(0.01 até 1000.0)
+
+SAÍDA
+imprima quem foi o vencedor: "primeiro" ou "segundo"

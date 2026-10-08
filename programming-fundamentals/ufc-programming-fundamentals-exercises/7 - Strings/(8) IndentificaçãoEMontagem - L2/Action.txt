@@ -1,0 +1,8 @@
+ENTRADA
+Frase de entrada (max 50 char)
+
+SAÍDA
+
+imprime a codificação de Pedrinho.
+
+vogal coloca v, onde é consoante coloca c. 

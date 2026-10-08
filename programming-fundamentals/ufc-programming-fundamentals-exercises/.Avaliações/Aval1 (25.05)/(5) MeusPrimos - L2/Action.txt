@@ -1,0 +1,5 @@
+ENTRADA
+o número inteiro n.
+
+SAÍDA
+a soma dos números não-primos de 0 a n subtraída da soma dos números primos de 0 a n.

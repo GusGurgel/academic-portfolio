@@ -1,0 +1,5 @@
+ENTRADA
+Salário atual do funcionário (float com até duas casas decimais)
+
+SAÍDA
+Novo Salário (float com duas casas decimais)

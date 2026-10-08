@@ -1,0 +1,7 @@
+ENTRADA
+A entrada é formada por um número inteiro representando o dia da semana:
+(1 = DOM, 2 = SEG, 3 = TER, 4 = QUA, 5 =QUI, 6 = SEX, 7 = SAB)
+e mais dois inteiros representando hora e minuto, um por linha.
+
+SAÍDA
+dever ser SIM se ele deve estar trabalhando ou NAO se ele não deve estar trabalhando.

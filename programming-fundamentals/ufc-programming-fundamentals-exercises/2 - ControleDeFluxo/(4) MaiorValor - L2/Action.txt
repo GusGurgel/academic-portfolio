@@ -1,0 +1,5 @@
+ENTRADA
+Leia quatro valores inteiros do usuário.
+
+SAÍDA
+Imprima o maior valor lido.

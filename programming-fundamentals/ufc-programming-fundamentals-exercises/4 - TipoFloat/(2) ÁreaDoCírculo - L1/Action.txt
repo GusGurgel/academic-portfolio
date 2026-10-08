@@ -1,0 +1,1 @@
+Leia o raio de um círculo e imprima sua área (com duas casas decimais).

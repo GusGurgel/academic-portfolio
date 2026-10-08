@@ -1,0 +1,8 @@
+ENTRADA
+Capacidade da cesta.
+Quantidade de bananas.
+Quantidade de goiabas.
+Quantidade de mangas.
+
+SAÍDA
+Duração da coleta em minutos.

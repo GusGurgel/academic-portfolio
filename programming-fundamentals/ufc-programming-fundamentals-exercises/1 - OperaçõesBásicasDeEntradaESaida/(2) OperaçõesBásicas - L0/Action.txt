@@ -1,0 +1,6 @@
+ENTRADA
+Valores de A,B em inteiro, um por linha.
+
+SAÍDA
+Valores da soma, subtração, multiplicação e resto da divisão em inteiro, um por linha.
+O valor de B nunca será 0, então não se preocupe com divisão por 0.

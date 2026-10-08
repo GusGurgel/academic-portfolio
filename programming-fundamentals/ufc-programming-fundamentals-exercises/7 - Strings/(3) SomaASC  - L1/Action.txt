@@ -1,0 +1,6 @@
+ENTRADA
+String referente ao nome da pessoa
+
+SAÍDA
+"Poder ASCOLÓGICO" que se baseia na soma dos valores de todas CHARS resto 50
+

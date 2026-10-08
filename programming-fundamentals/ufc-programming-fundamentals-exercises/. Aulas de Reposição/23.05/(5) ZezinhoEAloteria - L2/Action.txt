@@ -1,0 +1,6 @@
+ENTRADA
+* linha 1: O valor de n
+* linha 2: O valor de k
+
+SAÍDA
+A combinação de n elementos tomados k a k.

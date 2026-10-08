@@ -1,0 +1,6 @@
+ENTRADA
+linha 1: hora minuto segundo (do horário que vai dormir).
+linha 2: hora minuto segundo (do horário que vai acordar).
+
+SAÍDA
+hora minuto segundo (do tempo de sono que resta).

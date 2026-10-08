@@ -1,0 +1,21 @@
+ENTRADA
+Entrada:
+*Seu primeiro nome
+*Primeiro nome do seu crush
+
+SAÍDA
+Porcentagem de chances do crush te dar bola
+
+OBS:
+
+Se a primeira letra do nome for igual, ganha 20 pontos;
+
+Se tiver a mesma quantidade de letras nos nomes, ganha 30 pontos;
+
+Se tiver a mesma quantidade de vogais, ganha 30 pontos;
+
+Se ambos terminarem em vogal ou consoante, ganha 20 pontos.
+
+Se os nomes terminarem um em vogal e outro em consoante, perde 10 pontos;
+
+

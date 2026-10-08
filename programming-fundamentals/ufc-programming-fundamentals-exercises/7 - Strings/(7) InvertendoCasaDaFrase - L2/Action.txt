@@ -1,0 +1,7 @@
+ENTRADA
+Uma string
+
+SAÍDA
+A frase com o case invertido
+
+

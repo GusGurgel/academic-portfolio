@@ -1,0 +1,5 @@
+ENTRADA
+a quantidade de valores n, seguida de n números inteiros que devem ser armazenados em um vetor.
+
+SAÍDA
+A soma do maior com o menor valor do vetor..

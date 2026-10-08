@@ -1,0 +1,5 @@
+ENTRADA
+Leia três valores inteiros do usuário.
+
+SAÍDA
+Imprima a quantidade de valores iguais dentre os três.

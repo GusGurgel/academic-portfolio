@@ -1,0 +1,5 @@
+ENTRADA
+três notas de prova como inteiro e uma nota de trabalho, um por linha.
+
+SAÍDA
+"Aprovado com <nota>" ou "Final com <nota>", em que <nota> é o valor da média injusta.

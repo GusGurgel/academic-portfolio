@@ -1,0 +1,6 @@
+ENTRADA
+linha 1: um número com a quantidade de elementos do vetor ( 1 até 50)
+linha 2: o vetor de inteiros
+
+SAÍDA
+a quantidade de espécies diferentes

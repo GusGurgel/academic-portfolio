@@ -1,0 +1,6 @@
+ENTRADA
+1a linha: Número de elementos do primeiro vetor(1 a 50) seguido dos elementos.
+2a linha: Número de elementos do segundo vetor(1 a 50) seguido dos elementos.
+
+SAÍDA
+"sim" se o primeiro está condido no segundo e não caso contrário.

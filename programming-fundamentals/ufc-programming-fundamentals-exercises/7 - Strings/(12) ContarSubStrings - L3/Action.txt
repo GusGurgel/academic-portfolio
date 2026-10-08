@@ -1,0 +1,6 @@
+ENTRADA
+a primeira linha contento o texto completo e a segunda o trecho.
+
+SAÍDA
+Conte e escreva quantas vezes aparece o subtexto no texto maior.
+

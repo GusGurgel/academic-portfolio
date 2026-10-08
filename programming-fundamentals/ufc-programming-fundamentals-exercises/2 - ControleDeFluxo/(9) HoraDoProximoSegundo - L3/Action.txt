@@ -1,0 +1,5 @@
+ENTRADA
+Três inteiros, hora, minuto e segundo inicial em uma linha (representando o momento inicial da arrumação).
+
+SAÍDA
+Hora, minuto e segundo final e uma linha (representando o momento final da arrumação).

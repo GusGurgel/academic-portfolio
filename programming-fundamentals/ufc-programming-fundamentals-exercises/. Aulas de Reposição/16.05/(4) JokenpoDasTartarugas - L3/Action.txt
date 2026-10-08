@@ -1,0 +1,5 @@
+ENTRADA
+1a linha: opção do jogador 1. - 2a linha: opcao do jogador 2.
+
+SAÍDA
+O jogador que ganhou ou empate(jog1, jog2, empate)

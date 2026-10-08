@@ -1,0 +1,6 @@
+ENTRADA
+linha 1: um texto(até 200 chars) só com minúsculas e espaço.
+
+SAÍDA
+texto sem espaços duplicados no meio da frase.
+

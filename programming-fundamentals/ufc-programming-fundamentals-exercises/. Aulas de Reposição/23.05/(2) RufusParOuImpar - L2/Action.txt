@@ -1,0 +1,7 @@
+ENTRADA
+* linha 1: A opção do jogador1 (0 para par e 1 para impar)
+* linha 2: o número de dedos do primeiro jogador
+* linha 3: número de dedos do segundo jogador.
+
+SAÍDA
+* "Venceu" se o jogador 1 venceu e "Perdeu" se ele perdeu

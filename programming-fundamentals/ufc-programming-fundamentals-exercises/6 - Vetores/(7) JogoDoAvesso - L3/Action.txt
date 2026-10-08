@@ -1,0 +1,8 @@
+ENTRADA
+linha 1: a quantidade de casos de teste
+Cada caso de teste contem duas linhas
+--linha 1: o tamanho do vetor de operarios(N < 100) e o grito do chefe( 0 < X < 100)
+--linha 2: o vetor de operarios, cada elemento entre (0 < 100)
+
+SAÍDA
+o novo vetor

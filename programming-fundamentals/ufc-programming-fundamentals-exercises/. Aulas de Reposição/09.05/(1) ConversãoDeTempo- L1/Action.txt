@@ -1,0 +1,5 @@
+ENTRADA
+Leia o tempo em segundos
+
+SAÍDA
+Imprima este tempo em horas, minutos e segundos

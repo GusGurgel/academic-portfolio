@@ -1,0 +1,6 @@
+ENTRADA
+O inteiro C (capacidade).
+O inteiro M (movimentação). Continue lendo até o ônibus partir.
+
+SAÍDA
+O estado do ônibus para cada entrada ou saída de gente.

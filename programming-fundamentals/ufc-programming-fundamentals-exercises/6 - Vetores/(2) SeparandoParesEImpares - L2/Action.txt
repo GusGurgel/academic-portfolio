@@ -1,0 +1,7 @@
+ENTRADA
+1a linha: a quantidade de pessoas na fila.
+2a linha: um vetor de inteiros onde um número ímpar representa um aluno e um número par representa um servidor.
+
+SAÍDA
+1a linha: os numeros impares na ordem que aparecem na entrada
+2a linha: os números pares na ordem que aparecem na entrada

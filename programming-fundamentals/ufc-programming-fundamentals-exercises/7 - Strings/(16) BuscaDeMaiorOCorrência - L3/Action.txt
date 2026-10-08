@@ -1,0 +1,9 @@
+ENTRADA
+1a linha: a quantidade de casos de teste(1 a 50).
+Uma linha por caso de teste contendo uma frase de até 50
+caracteres, apenas com minuscula. 
+
+SAÍDA
+Para cada caso de teste retorne uma linha contendo o subtexto
+com a maior quantidade de vogais juntas.
+Se existir empate, retorne o que aparece primeiro no texto.

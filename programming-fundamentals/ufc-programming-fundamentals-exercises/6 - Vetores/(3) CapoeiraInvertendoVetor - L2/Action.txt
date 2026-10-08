@@ -1,0 +1,5 @@
+ENTRADA
+dados para serem armazenados em um vetor.
+
+SAÍDA
+Imprima os daos em ordem invertida.

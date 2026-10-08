@@ -1,0 +1,7 @@
+ENTRADA
+Leia uma temperatura em graus Celsius 
+
+SAÍDA
+imprima seu correspondente em graus Fahrenheit.
+
+Fórmula: Fahrenheit = Celsius * 9 / 5 + 3

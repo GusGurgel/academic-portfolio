@@ -1,0 +1,5 @@
+ENTRADA
+frase em até 100 char.
+
+SAÍDA
+frase invertida

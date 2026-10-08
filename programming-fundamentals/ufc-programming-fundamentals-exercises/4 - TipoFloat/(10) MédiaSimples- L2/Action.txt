@@ -1,0 +1,6 @@
+ENTRADA
+1ª linha: a quantidade de notas.
+2ª linha: as notas em ponto flutuante.
+
+SAÍDA
+O valor da média com uma casa decimal.

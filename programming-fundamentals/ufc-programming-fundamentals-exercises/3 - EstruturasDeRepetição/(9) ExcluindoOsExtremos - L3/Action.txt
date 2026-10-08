@@ -1,0 +1,6 @@
+ENTRADA
+A primeira linha é a quantidade de juízes.
+As demais linhas são números inteiros representando as notas dos juízes.
+
+SAÍDA
+A soma dos valores restantes (excluindo o menor e o maior)

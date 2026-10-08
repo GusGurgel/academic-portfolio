@@ -1,0 +1,1 @@
+Programa que formata texto para meu projeto de diário.

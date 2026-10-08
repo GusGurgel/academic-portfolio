@@ -1,0 +1,8 @@
+ENTRADA
+O número n ( 0 < n <= 50) de dominós.
+
+SAÍDA
+
+"ok" - caso  caso vetor esteja ordenado.
+"precisa de ajuste" - caso vetor esteja desordenado.
+

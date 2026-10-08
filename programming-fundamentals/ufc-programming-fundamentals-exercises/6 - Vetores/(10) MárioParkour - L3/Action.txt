@@ -1,0 +1,6 @@
+ENTRADA
+1a linha: a quantidade de elementos do vetor(1 a 50).
+2a linha: o vetor.
+
+SAÍDA
+A quantidade de movimentos de parkour.

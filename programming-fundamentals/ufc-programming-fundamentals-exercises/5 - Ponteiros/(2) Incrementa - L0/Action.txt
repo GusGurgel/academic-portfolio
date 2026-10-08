@@ -1,0 +1,5 @@
+ENTRADA
+Dois valores inteiros x e y.
+
+SAÍDA
+o valor de y somado ao valor de x.

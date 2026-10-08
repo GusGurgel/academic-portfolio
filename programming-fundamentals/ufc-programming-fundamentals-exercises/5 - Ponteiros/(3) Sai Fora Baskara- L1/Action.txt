@@ -1,0 +1,6 @@
+ENTRADA
+Três valores a, b e c representando os coeficientes de uma equação de segundo grau.
+
+SAÍDA
+1a linha: -1 se a equação não tem raízes reais; 0 se tem somente uma raiz real e e o valor da raíz ou; 1 se a equação tem duas raízes reais distintas.
+demais linhas: os valores das raízes (se existir)

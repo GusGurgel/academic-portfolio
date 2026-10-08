@@ -1,0 +1,5 @@
+ENTRADA
+A entrada começa informando a quantidade de cartas, e é seguida por uma sequência de inteiros que identificam as cartas.
+
+SAÍDA
+A saída deve se um inteiro informando o valor da mão do blackjack.

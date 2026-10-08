@@ -1,0 +1,5 @@
+ENTRADA
+Dois números inteiros A e B.
+
+SAÍDA
+A soma de todos os números pares divisíveis por 3, ou "invalido" caso A seja maior que B.

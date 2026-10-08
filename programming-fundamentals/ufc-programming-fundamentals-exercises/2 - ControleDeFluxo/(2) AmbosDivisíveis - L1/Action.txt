@@ -1,0 +1,5 @@
+ENTRADA
+Dois números inteiros.
+
+SAÍDA
+"sim" (sem aspas) caso ambos sejam divisiveis por 3 ou 5. E "nao" (sem aspas) caso não sejam divisíveis

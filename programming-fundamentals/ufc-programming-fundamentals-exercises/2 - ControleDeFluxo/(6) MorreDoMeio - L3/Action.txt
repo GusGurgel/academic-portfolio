@@ -1,0 +1,5 @@
+ENTRADA
+Os três valores, uma por linha, todos os valores serão diferentes.
+
+SAÍDA
+O valor do meio.

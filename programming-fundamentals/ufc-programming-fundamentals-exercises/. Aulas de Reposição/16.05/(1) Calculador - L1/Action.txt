@@ -1,0 +1,5 @@
+ENTRADA
+Leia do usuário dois valores inteiro um valor inteiro para a operação ('1', '2', '3' ou '4')
+
+SAÍDA
+Imprima o resultado da operação em inteiro. Se a operação não pode ser realizada, imprima "invalida".

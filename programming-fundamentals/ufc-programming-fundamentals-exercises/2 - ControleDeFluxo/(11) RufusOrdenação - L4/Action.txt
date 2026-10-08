@@ -1,0 +1,5 @@
+ENTRADA
+três valores inteiros, representando a altura em cm dos Rufinhos.
+
+SAÍDA
+"P M G"; "P G M", "G P M"; "M P G"; "M G P" ou "G M P", dependendo dos valores de entrada. 

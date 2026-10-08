@@ -1,0 +1,5 @@
+ENTRADA
+Um número palíndromo é um número que é o mesmo se lido da direita para a esquerda ou da esquerda para direita.
+
+SAÍDA
+121 é palíndromo pois seu inverso é 121.

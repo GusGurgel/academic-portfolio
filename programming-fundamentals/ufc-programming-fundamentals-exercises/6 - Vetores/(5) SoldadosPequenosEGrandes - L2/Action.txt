@@ -1,0 +1,5 @@
+ENTRADA
+O primeiro valor é inteiro N (1 a 50) e define quantos soldados existem. Depois segue-se N valores 'float' correspondente às alturas dos soldados.
+
+SAÍDA
+Imprima a média com dois dígitos na primeira linha e na segunda linha para cada soldado, imprima respectivamente 'P' se o soldado for pequeno, 'G' se for grande e 'M' se ele for exatamente igual à média.

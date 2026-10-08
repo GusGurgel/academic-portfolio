@@ -1,0 +1,8 @@
+ENTRADA
+O valor da venda
+
+SAÍDA
+1a linha: o valor com desconto de 10%
+2a linha: o valor da parcela
+3a linha: a comissao (a vista)
+4a linha: a comissao (a prazo)

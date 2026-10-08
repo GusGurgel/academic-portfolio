@@ -1,0 +1,5 @@
+ENTRADA
+4 números(1 2 3 4) uma por linha.
+
+SAÍDA
+O texto correspondente ao número de acertos.

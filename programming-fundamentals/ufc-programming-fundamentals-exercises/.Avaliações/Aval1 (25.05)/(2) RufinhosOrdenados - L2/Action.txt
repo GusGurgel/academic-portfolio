@@ -1,0 +1,5 @@
+ENTRADA
+o número n de rufinhos, seguido do tamanho de cada rufinho, um por linha.
+
+SAÍDA
+"sim", se os rufinhos estão ordenados em ordem crescente. "nao", caso contrário.

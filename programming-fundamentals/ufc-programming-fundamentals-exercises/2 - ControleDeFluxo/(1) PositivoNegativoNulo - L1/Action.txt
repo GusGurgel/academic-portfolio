@@ -1,0 +1,5 @@
+ENTRADA
+Leia um valor inteiro do usuário.
+
+SAÍDA
+Imprima "positivo", "nulo" ou "negativo" de acordo com o valor lido.

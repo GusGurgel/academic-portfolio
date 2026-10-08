@@ -1,0 +1,6 @@
+ENTRADA
+Receba dois inteiros do usuário o primeiro sendo o dígito que se quer saber quantas vezes aparece, e o segundo sendo o número do contato (8 dígitos).
+
+
+SAÍDA
+Quantas vezes o número escolhido se repete.

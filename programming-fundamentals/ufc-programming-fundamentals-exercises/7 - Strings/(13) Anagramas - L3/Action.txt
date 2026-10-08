@@ -1,0 +1,7 @@
+ENTRADA
+duas palavras, uma por linha, apenas caracteres minusculos e sem espaços.
+
+SAÍDA
+ser apenas "sim" se é um anagrama ou "nao" se não é um anagrama
+
+

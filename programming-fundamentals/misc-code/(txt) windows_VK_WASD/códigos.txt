@@ -1,0 +1,6 @@
+Esses valores definem as teclas W-A-S-D (do sistema windows Virtual-Key) usualmente usadas para movimentação em jogos
+
+#define VK_D_RIGHT 68
+#define VK_A_LEFT 65
+#define VK_S_DOWN 83
+#define VK_W_UP 87

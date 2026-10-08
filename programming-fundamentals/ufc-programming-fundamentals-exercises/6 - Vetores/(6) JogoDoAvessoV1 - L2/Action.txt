@@ -1,0 +1,6 @@
+ENTRADA
+--linha 1: o tamanho do vetor de operarios(N < 100) e o grito do chefe( 0 < X < 100)
+--linha 2: o vetor de operários, cada elemento entre (0 < 100)
+
+SAÍDA
+o novo vetor

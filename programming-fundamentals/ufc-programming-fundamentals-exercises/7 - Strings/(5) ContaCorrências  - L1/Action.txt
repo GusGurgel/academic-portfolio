@@ -1,0 +1,7 @@
+ENTRADA
+Linha 1: Frase
+Linha 2: Char para ser encontrada
+
+SAÍDA
+Quantidade de chars encontradas
+

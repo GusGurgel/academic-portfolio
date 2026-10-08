@@ -1,0 +1,5 @@
+ENTRADA
+Os seis valores do dígito de matrícula, um por linha.
+
+SAÍDA
+O valor em FUP$s.

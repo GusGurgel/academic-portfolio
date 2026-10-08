@@ -1,0 +1,6 @@
+ENTRADA
+Dado uma letra e um valor de rotação retorne
+
+SAÍDA
+a letra resultante.
+

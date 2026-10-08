@@ -1,0 +1,6 @@
+ENTRADA
+Uma palavra apenas com minúsculos e maiúsculos sem espaços (1 a 30 chars).
+
+SAÍDA
+o caractere inserido no final do nome, ou "sem sorte"
+

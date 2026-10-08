@@ -1,0 +1,7 @@
+ENTRADA
+1a linha: Limite inferior do intervalo
+2a linha: Limite superior do intervalo
+
+SAÍDA
+"soldados" se os soldados(pares) somados são mais fortes.
+"rebeldes" se os rebeldes(impares) somados são mais fortes.

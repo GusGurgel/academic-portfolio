@@ -1,0 +1,5 @@
+ENTRADA
+P, S, E inteiros, um por linha.
+
+SAÍDA
+as posições de salto e aterrissagem do sapinho até que ele saia do poço ou morra afogado.

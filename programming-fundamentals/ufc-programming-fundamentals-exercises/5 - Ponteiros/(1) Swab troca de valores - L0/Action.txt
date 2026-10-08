@@ -1,0 +1,5 @@
+ENTRADA
+Dois valores de x e y
+
+SAÍDA
+valores de x e y trocados.

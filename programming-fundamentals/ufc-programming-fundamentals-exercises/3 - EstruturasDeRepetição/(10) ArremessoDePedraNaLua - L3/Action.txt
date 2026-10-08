@@ -1,0 +1,6 @@
+ENTRADA
+O número N de competidores na primeira linha. Cada uma das linhas subsequentes terá a distância das pedras A e B.
+
+SAÍDA
+O número do competidos vitorioso. O primeiro competidor tem número 0. Caso haja empate, mostre o de menor número. Se ninguém ganhar o jogo, porque nao conseguiram lançar as bolas além dos 10 metros, imprima "sem ganhador"
+

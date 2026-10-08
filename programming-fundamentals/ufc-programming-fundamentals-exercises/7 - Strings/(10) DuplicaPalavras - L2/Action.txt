@@ -1,0 +1,5 @@
+ENTRADA
+Frase
+
+SAÍDA
+Frase com as palavras repetidas

@@ -1,0 +1,3 @@
+- Cria uma lista de pessoas e passa para um arquivo TXT. (Parte do meu estudo sobre arquivos em c++) 
+
+- Para terminar a lista basta passar uma linha vazia como entrada.

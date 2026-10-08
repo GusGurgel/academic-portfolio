@@ -1,0 +1,5 @@
+ENTRADA
+A entrada consiste de uma linha com quatro inteiros: H, P, F e D, representando, respectivamente, as posições do helicóptero, do policial e do fugitivo, e a direção em que o fugitivo corre, -1 para horário e 1 para anti-horário.
+
+SAÍDA
+Os inteiros H, P e F são distintos e estão entre 0 e 15, inclusive.

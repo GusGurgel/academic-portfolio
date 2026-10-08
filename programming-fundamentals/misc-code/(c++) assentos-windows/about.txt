@@ -1,0 +1,1 @@
+O código utiliza o comando de sistema "chcp" para alterar a página de código do console ativa, assim tornando possível a utilização de assentos.

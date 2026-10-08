@@ -1,0 +1,6 @@
+ENTRADA
+1a linha: número de elementos
+2a linha: sequência de números inteiros.
+
+SAÍDA
+"Jedi", "Sith", ou "Empate"
