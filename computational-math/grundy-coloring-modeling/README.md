@@ -18,7 +18,7 @@ For each instance, the notebook records the objective value (number of colors), 
 
 ## Repository Contents
 
-- `Modelagem_Coloracao_De_Grundy.ipynb` — Jupyter Notebook containing the mathematical formulations, Python implementations, experiments, recorded results, and conclusions.
+- `modelagem-coloracao-de-grundy` — Jupyter Notebook containing the mathematical formulations, Python implementations, experiments, recorded results, and conclusions.
 
 ## Requirements
 
