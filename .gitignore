@@ -346,3 +346,50 @@ TSWLatexianTemp*
 
 # xwatermark package
 *.xwm
+
+# ==========================================
+# Python
+# ==========================================
+# Bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging and build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+pip-wheel-metadata/
+
+# Testing, coverage, and type checking
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.pyre/
+.ruff_cache/
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Python tooling
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDEs
+.spyderproject
+.spyproject/
+.ropeproject/
