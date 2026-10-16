@@ -1,0 +1,21 @@
+- Gustavo Gurgel Medeiros - 539226
+    - Iniciação do projeto com Beanie.
+        - Adição das dependências.
+        - Configuração do database.py.
+        - Configuração do main.py.
+    - Rotas de TaskStatus.
+    - Rotas de Project.
+
+- Matheus Conrado Pires - 536536
+    - Rotas de Projetos(Agora englobando Task (embedded document)).
+        - Link com TaskStatus e User.
+        - Ajuste dos models de Task e Project + criação de DTOs para criacao, update de task e project, omitindo id.
+
+- Victor Emanuel de Sousa Costa - 535718
+    - Ajuste dos models de TaskStatus e User
+    - Implementação de consultas complexas e filtros 
+        - Filtros por data
+        - busca por texto
+    - Implementação de rotas de Agregação e contagem
+        - Contagem de tarefas atrasadas por projeto
+    - População sintética do banco utilizando a biblioteca Faker.

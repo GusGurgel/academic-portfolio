@@ -1,0 +1,26 @@
+from fastapi import FastAPI
+from contextlib import asynccontextmanager
+from database import init_db, close_db
+from fastapi_pagination import add_pagination
+
+from routes import task_status, home, user, project
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await init_db()
+    yield
+    await close_db()
+
+
+# FastAPI app instance
+app = FastAPI(lifespan=lifespan)
+
+
+# Rotas para Endpoints
+app.include_router(task_status.router)
+app.include_router(project.router)
+app.include_router(user.router)
+app.include_router(home.router)
+
+add_pagination(app)
