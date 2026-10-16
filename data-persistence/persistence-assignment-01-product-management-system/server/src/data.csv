@@ -1,0 +1,36 @@
+id,nome,categoria,preco
+13,Maça,fruta,5.5
+14,Morango (KG),fruta,30.0
+15,Salgadinhos 200g,salgado,2.2
+16,Leite (L),laticínios,5.3
+17,Vinho Caro (500ml),bebidas,112.5
+18,Banana Prata (KG),fruta,7.5
+19,Arroz Tipo 1 (1KG),mercearia,6.7
+20,Feijão Preto (1KG),mercearia,8.9
+21,Óleo de Soja (900ml),mercearia,9.5
+22,Açúcar Refinado (1KG),mercearia,4.3
+23,Queijo Muçarela (KG),laticínios,45.0
+24,Iogurte Natural (170g),laticínios,3.8
+25,Manteiga com Sal (200g),laticínios,12.9
+26,Presunto Cozido (KG),frios,29.9
+27,Requeijão Cremoso (200g),laticínios,7.5
+28,Peito de Frango (KG),carne,20.9
+29,Carne Moída (KG),carne,35.5
+30,Hambúrguer Bovino (4 un),congelados,15.0
+31,Linguiça Toscana (KG),carne,18.0
+32,Pizza Congelada (Grande),congelados,28.5
+33,Água Mineral s/gás (1.5L),bebidas,3.8
+34,Refrigerante Cola (2L),bebidas,8.5
+35,Cerveja Pilsen (Long Neck),bebidas,6.9
+36,Suco de Laranja (1L),bebidas,9.9
+37,Vinho Tinto Seco (750ml),bebidas,42.0
+38,Pão Francês (KG),padaria,14.0
+39,Pão de Forma Integral (500g),padaria,8.5
+40,Biscoito Maizena (200g),mercearia,4.9
+41,Macarrão Espaguete (500g),mercearia,4.2
+42,Molho de Tomate (340g),mercearia,3.1
+43,Detergente Líquido (500ml),limpeza,2.5
+44,Sabão em Pó (1KG),limpeza,12.9
+45,Papel Higiênico (4 Rolos),higiene,6.5
+46,Shampoo (350ml),higiene,18.5
+47,Dúzia de Ovos,mercearia,11.5

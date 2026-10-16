@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema Produtos 🏪</title>
+</head>
+
+<body class="m-5 mt-4">
+  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="display-4 text-center mb-4">Sistema Produtos 🏪</h1>
+
+  <div class="input-group mb-4">
+    <input id="input-nome" type="text" placeholder="Nome" aria-label="First name" class="form-control" />
+    <input id="input-categoria" type="text" placeholder="Categoria" aria-label="Last name" class="form-control" />
+    <input id="input-preco" type="text" placeholder="Preço" aria-label="Last name" class="form-control" />
+    <button id="button-add" class="btn btn-outline-success" type="button">
+      Adicionar
+    </button>
+  </div>
+
+  <table id="product-table" class="table table-hover">
+    <thead class="sticky-top">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Categoria</th>
+        <th scope="col" id="tr-mean">Preço (Média)</th>
+        <th scope="col">Controles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>input</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>11.2</td>
+        <td style="width: 15%;">
+          <button class="btn btn-outline-primary" type="button">📝</button>
+          <button class="btn btn-outline-danger" type="button">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
