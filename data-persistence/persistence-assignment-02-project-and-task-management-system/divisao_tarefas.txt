@@ -1,0 +1,24 @@
+- Gustavo Gurgel Medeiros - 539226
+    - Iniciação do projeto.
+        - Adição das dependências.
+        - Configuração do database.py.
+        - Configuração do inicial do alembic.
+    - Rotas de TaskStatus.
+    - Rotas de Project.
+
+- Matheus Conrado Pires - 536536
+    - Rotas de Task.
+        - Relacionamento com TaskStatus.
+    - Correções na rota de TaskStatus
+    - Criação e configuração da conexão com banco remoto PostgresSQL utilizando o sistema Neon.
+    - População sintética do banco utilizando a biblioteca Faker.
+
+- Victor Emanuel de Sousa Costa - 535718
+    - Criação de rota complexa em project.
+        - Pesquisa parcial em projetos por nome do projeto e descrição do projeto.
+    - Criação de rota complexa em tasks de projetos.
+        - Pesquisa por parcial por nome e descrição.
+        - Pesquisa por data final da tarefa.
+        - Pesquisa por prioridade da tarefa.
+        - Pesquisa por tarefas atrasadas.
+    - Adição dos campos priority e due date na tabela task.
