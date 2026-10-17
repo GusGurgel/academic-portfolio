@@ -1,0 +1,126 @@
+name: Deploy Forum to AWS VM
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.AWS_SSH_KEY }}
+      
+      - name: Setup Docker on VM (if needed)
+        env:
+          HOST: ${{ secrets.AWS_SSH_HOST }}
+          USER: ${{ secrets.AWS_SSH_USER }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $USER@$HOST '
+            # Check if docker is installed and accessible
+            if ! docker ps &>/dev/null; then
+              echo "Setting up Docker access..."
+              sudo usermod -aG docker $USER || true
+              # Install docker-compose if not present
+              if ! command -v docker-compose &>/dev/null && ! docker compose version &>/dev/null; then
+                echo "Installing Docker Compose..."
+                sudo apt update
+                sudo apt install -y docker-compose-plugin || {
+                  sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+                  sudo chmod +x /usr/local/bin/docker-compose
+                }
+              fi
+            fi
+          '
+      
+      - name: Clone or update repository on VM
+        env:
+          HOST: ${{ secrets.AWS_SSH_HOST }}
+          USER: ${{ secrets.AWS_SSH_USER }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $USER@$HOST '
+            if [ ! -d ~/trabalho_final_nuvem/tb-nuvem-2025 ]; then
+              mkdir -p ~/trabalho_final_nuvem
+              cd ~/trabalho_final_nuvem
+              git clone https://github.com/${{ github.repository }}.git tb-nuvem-2025
+            else
+              cd ~/trabalho_final_nuvem/tb-nuvem-2025 && git pull origin main
+            fi
+          '
+      
+      - name: Stop existing containers
+        env:
+          HOST: ${{ secrets.AWS_SSH_HOST }}
+          USER: ${{ secrets.AWS_SSH_USER }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $USER@$HOST '
+            cd ~/trabalho_final_nuvem/tb-nuvem-2025
+            # Try both new and old docker-compose syntax
+            docker compose down 2>/dev/null || docker-compose down 2>/dev/null || true
+            docker system prune -f || true
+          '
+      
+      - name: Create .env file on VM
+        env:
+          HOST: ${{ secrets.AWS_SSH_HOST }}
+          USER: ${{ secrets.AWS_SSH_USER }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $USER@$HOST '
+            cd ~/trabalho_final_nuvem/tb-nuvem-2025
+            echo "PG_HOST=${{ secrets.ENV_PG_HOST }}" > .env
+            echo "PG_PORT=${{ secrets.ENV_PG_PORT }}" >> .env
+            echo "PG_USER=${{ secrets.ENV_PG_USER }}" >> .env
+            echo "PG_PASSWORD=${{ secrets.ENV_PG_PASSWORD }}" >> .env
+            echo "PG_DATABASE=${{ secrets.ENV_PG_DATABASE }}" >> .env
+          '
+      
+      - name: Create config.js on VM
+        env:
+          HOST: ${{ secrets.AWS_SSH_HOST }}
+          USER: ${{ secrets.AWS_SSH_USER }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $USER@$HOST '
+            cd ~/trabalho_final_nuvem/tb-nuvem-2025/frontend
+            echo "// Auto-generated config file" > config.js
+            echo "window.API_BASE_URL = \"http://${{ secrets.AWS_SSH_HOST }}:8000/api\"" >> config.js
+          '
+      
+      - name: Build and deploy containers
+        env:
+          HOST: ${{ secrets.AWS_SSH_HOST }}
+          USER: ${{ secrets.AWS_SSH_USER }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $USER@$HOST '
+            cd ~/trabalho_final_nuvem/tb-nuvem-2025
+            # Try both new and old docker-compose syntax
+            if docker compose version &>/dev/null; then
+              docker compose build --no-cache
+              docker compose up -d
+            elif docker-compose --version &>/dev/null; then
+              docker-compose build --no-cache
+              docker-compose up -d
+            else
+              echo "Error: Neither docker compose nor docker-compose is available"
+              exit 1
+            fi
+          '
+      
+      - name: Verify deployment
+        env:
+          HOST: ${{ secrets.AWS_SSH_HOST }}
+          USER: ${{ secrets.AWS_SSH_USER }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $USER@$HOST '
+            cd ~/trabalho_final_nuvem/tb-nuvem-2025
+            echo "Checking container status..."
+            if docker compose version &>/dev/null; then
+              docker compose ps
+            else
+              docker-compose ps
+            fi
+            echo "Deployment completed!"
+          '

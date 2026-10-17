@@ -1,0 +1,54 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PG_HOST=${PG_HOST}
+      - PG_PORT=${PG_PORT}
+      - PG_USER=${PG_USER}
+      - PG_PASSWORD=${PG_PASSWORD}
+      - PG_DATABASE=${PG_DATABASE}
+      - PORT=8000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    depends_on:
+      - db_check
+    networks:
+      - forum_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    depends_on:
+      - backend
+    networks:
+      - forum_network
+
+  db_check:
+    image: postgres:13-alpine
+    environment:
+      - PGPASSWORD=${PG_PASSWORD}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: >
+      sh -c "
+        until pg_isready -h ${PG_HOST} -p ${PG_PORT} -U ${PG_USER}; do
+          echo 'Waiting for database...';
+          sleep 2;
+        done;
+        echo 'Database is ready!';
+      "
+    networks:
+      - forum_network
+
+networks:
+  forum_network:
+    driver: bridge
