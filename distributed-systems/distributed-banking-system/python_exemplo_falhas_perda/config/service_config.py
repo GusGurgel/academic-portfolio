@@ -1,0 +1,14 @@
+from utils import *
+
+# Protocol
+BUFFER_SIZE = 2048
+FORMAT = "utf-8"
+
+# Client
+REQUISITION_TIMEOUT = 0.2
+REQUISITION_RETRIES = 30
+
+# Server
+SERVER_PORT = 12000
+SERVER_IP = getLocalHostIP()
+SERVER_ADDR = (SERVER_IP, SERVER_PORT)

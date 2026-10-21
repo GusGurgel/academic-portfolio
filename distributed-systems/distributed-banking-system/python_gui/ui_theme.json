@@ -1,0 +1,31 @@
+{
+    "#title": {
+        "colours": {
+            "normal_text": "white",
+            "text_shadow": "black"
+        },
+        "font": {
+            "size": "60",
+            "name": "Courier New"
+        },
+        "misc": {
+            "text_shadow": "1",
+            "text_shadow_size": "1",
+            "text_shadow_offset": "2,2"
+        }
+    },
+    "#status-box": {
+        "font": {
+            "size": "21"
+        }
+    },
+    "@input-label": {
+        "font": {
+            "size": "20",
+            "name": "Courier New"
+        },
+        "colours": {
+            "normal_text": "black"
+        }
+    }
+}
